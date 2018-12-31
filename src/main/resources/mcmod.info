@@ -1,0 +1,16 @@
+[
+{
+  "modid": "serverstop",
+  "name": "ServerStop",
+  "description": "A small server-side mod that auto-shutdowns a server at a certain time on a certain day.",
+  "version": "",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["coolsim"],
+  "credits": "To leviofpower and Jessen_House who have played a vital part in testing this mod on my server. Small credit to Google Translate and Microsoft Translate for the majority of the translations.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
