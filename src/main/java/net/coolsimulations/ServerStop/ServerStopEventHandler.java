@@ -36,7 +36,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
-				player.sendMessage(fiveMins);
+				player.sendChatMsg(fiveMins);
 				hasPosted5Min = true;
 			}
 			
@@ -44,7 +44,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
-				player.sendMessage(oneMin);
+				player.sendChatMsg(oneMin);
 				hasPosted1Min = true;
 			}
 			
@@ -52,7 +52,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
-				player.sendMessage(thirtySecs);
+				player.sendChatMsg(thirtySecs);
 				hasPosted30Sec = true;
 			}
 			
@@ -60,7 +60,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
-				player.sendMessage(tenSecs);
+				player.sendChatMsg(tenSecs);
 				hasPosted10Sec = true;
 			}
 			
@@ -69,7 +69,7 @@ public class ServerStopEventHandler {
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
 				fiveSecs.getStyle().setBold(true);
-				player.sendMessage(fiveSecs);
+				player.sendChatMsg(fiveSecs);
 				hasPosted5Sec = true;
 			}
 			
@@ -78,7 +78,7 @@ public class ServerStopEventHandler {
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				fourSecs.getStyle().setBold(true);
-				player.sendMessage(fourSecs);
+				player.sendChatMsg(fourSecs);
 				hasPosted4Sec = true;
 			}
 			
@@ -87,7 +87,7 @@ public class ServerStopEventHandler {
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				threeSecs.getStyle().setBold(true);
-				player.sendMessage(threeSecs);
+				player.sendChatMsg(threeSecs);
 				hasPosted3Sec = true;
 			}
 			
@@ -96,7 +96,7 @@ public class ServerStopEventHandler {
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				twoSecs.getStyle().setBold(true);
-				player.sendMessage(twoSecs);
+				player.sendChatMsg(twoSecs);
 				hasPosted2Sec = true;
 			}
 			
@@ -105,7 +105,7 @@ public class ServerStopEventHandler {
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
 				oneSec.getStyle().setBold(true);
-				player.sendMessage(oneSec);
+				player.sendChatMsg(oneSec);
 				hasPosted1Sec = true;
 			}
 			
@@ -122,7 +122,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
-				player.sendMessage(fiveMins);
+				player.sendChatMsg(fiveMins);
 				hasPosted5Min = true;
 			}
 			
@@ -130,7 +130,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
-				player.sendMessage(oneMin);
+				player.sendChatMsg(oneMin);
 				hasPosted1Min = true;
 			}
 			
@@ -138,7 +138,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
-				player.sendMessage(thirtySecs);
+				player.sendChatMsg(thirtySecs);
 				hasPosted30Sec = true;
 			}
 			
@@ -146,7 +146,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
-				player.sendMessage(tenSecs);
+				player.sendChatMsg(tenSecs);
 				hasPosted10Sec = true;
 			}
 			
@@ -155,7 +155,7 @@ public class ServerStopEventHandler {
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
 				fiveSecs.getStyle().setBold(true);
-				player.sendMessage(fiveSecs);
+				player.sendChatMsg(fiveSecs);
 				hasPosted5Sec = true;
 			}
 			
@@ -164,7 +164,7 @@ public class ServerStopEventHandler {
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				fourSecs.getStyle().setBold(true);
-				player.sendMessage(fourSecs);
+				player.sendChatMsg(fourSecs);
 				hasPosted4Sec = true;
 			}
 			
@@ -173,7 +173,7 @@ public class ServerStopEventHandler {
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				threeSecs.getStyle().setBold(true);
-				player.sendMessage(threeSecs);
+				player.sendChatMsg(threeSecs);
 				hasPosted3Sec = true;
 			}
 			
@@ -182,7 +182,7 @@ public class ServerStopEventHandler {
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				twoSecs.getStyle().setBold(true);
-				player.sendMessage(twoSecs);
+				player.sendChatMsg(twoSecs);
 				hasPosted2Sec = true;
 			}
 			
@@ -191,7 +191,7 @@ public class ServerStopEventHandler {
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
 				oneSec.getStyle().setBold(true);
-				player.sendMessage(oneSec);
+				player.sendChatMsg(oneSec);
 				hasPosted1Sec = true;
 			}
 			
@@ -208,7 +208,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
-				player.sendMessage(fiveMins);
+				player.sendChatMsg(fiveMins);
 				hasPosted5Min = true;
 			}
 			
@@ -216,7 +216,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
-				player.sendMessage(oneMin);
+				player.sendChatMsg(oneMin);
 				hasPosted1Min = true;
 			}
 			
@@ -224,7 +224,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
-				player.sendMessage(thirtySecs);
+				player.sendChatMsg(thirtySecs);
 				hasPosted30Sec = true;
 			}
 			
@@ -232,7 +232,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
-				player.sendMessage(tenSecs);
+				player.sendChatMsg(tenSecs);
 				hasPosted10Sec = true;
 			}
 			
@@ -241,7 +241,7 @@ public class ServerStopEventHandler {
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
 				fiveSecs.getStyle().setBold(true);
-				player.sendMessage(fiveSecs);
+				player.sendChatMsg(fiveSecs);
 				hasPosted5Sec = true;
 			}
 			
@@ -250,7 +250,7 @@ public class ServerStopEventHandler {
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				fourSecs.getStyle().setBold(true);
-				player.sendMessage(fourSecs);
+				player.sendChatMsg(fourSecs);
 				hasPosted4Sec = true;
 			}
 			
@@ -259,7 +259,7 @@ public class ServerStopEventHandler {
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				threeSecs.getStyle().setBold(true);
-				player.sendMessage(threeSecs);
+				player.sendChatMsg(threeSecs);
 				hasPosted3Sec = true;
 			}
 			
@@ -268,7 +268,7 @@ public class ServerStopEventHandler {
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				twoSecs.getStyle().setBold(true);
-				player.sendMessage(twoSecs);
+				player.sendChatMsg(twoSecs);
 				hasPosted2Sec = true;
 			}
 			
@@ -277,7 +277,7 @@ public class ServerStopEventHandler {
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
 				oneSec.getStyle().setBold(true);
-				player.sendMessage(oneSec);
+				player.sendChatMsg(oneSec);
 				hasPosted1Sec = true;
 			}
 			
@@ -294,7 +294,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
-				player.sendMessage(fiveMins);
+				player.sendChatMsg(fiveMins);
 				hasPosted5Min = true;
 			}
 			
@@ -302,7 +302,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
-				player.sendMessage(oneMin);
+				player.sendChatMsg(oneMin);
 				hasPosted1Min = true;
 			}
 			
@@ -310,7 +310,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
-				player.sendMessage(thirtySecs);
+				player.sendChatMsg(thirtySecs);
 				hasPosted30Sec = true;
 			}
 			
@@ -318,7 +318,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
-				player.sendMessage(tenSecs);
+				player.sendChatMsg(tenSecs);
 				hasPosted10Sec = true;
 			}
 			
@@ -327,7 +327,7 @@ public class ServerStopEventHandler {
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
 				fiveSecs.getStyle().setBold(true);
-				player.sendMessage(fiveSecs);
+				player.sendChatMsg(fiveSecs);
 				hasPosted5Sec = true;
 			}
 			
@@ -336,7 +336,7 @@ public class ServerStopEventHandler {
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				fourSecs.getStyle().setBold(true);
-				player.sendMessage(fourSecs);
+				player.sendChatMsg(fourSecs);
 				hasPosted4Sec = true;
 			}
 			
@@ -345,7 +345,7 @@ public class ServerStopEventHandler {
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				threeSecs.getStyle().setBold(true);
-				player.sendMessage(threeSecs);
+				player.sendChatMsg(threeSecs);
 				hasPosted3Sec = true;
 			}
 			
@@ -354,7 +354,7 @@ public class ServerStopEventHandler {
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				twoSecs.getStyle().setBold(true);
-				player.sendMessage(twoSecs);
+				player.sendChatMsg(twoSecs);
 				hasPosted2Sec = true;
 			}
 			
@@ -363,7 +363,7 @@ public class ServerStopEventHandler {
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
 				oneSec.getStyle().setBold(true);
-				player.sendMessage(oneSec);
+				player.sendChatMsg(oneSec);
 				hasPosted1Sec = true;
 			}
 			
@@ -380,7 +380,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
-				player.sendMessage(fiveMins);
+				player.sendChatMsg(fiveMins);
 				hasPosted5Min = true;
 			}
 			
@@ -388,7 +388,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
-				player.sendMessage(oneMin);
+				player.sendChatMsg(oneMin);
 				hasPosted1Min = true;
 			}
 			
@@ -396,7 +396,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
-				player.sendMessage(thirtySecs);
+				player.sendChatMsg(thirtySecs);
 				hasPosted30Sec = true;
 			}
 			
@@ -404,7 +404,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
-				player.sendMessage(tenSecs);
+				player.sendChatMsg(tenSecs);
 				hasPosted10Sec = true;
 			}
 			
@@ -413,7 +413,7 @@ public class ServerStopEventHandler {
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
 				fiveSecs.getStyle().setBold(true);
-				player.sendMessage(fiveSecs);
+				player.sendChatMsg(fiveSecs);
 				hasPosted5Sec = true;
 			}
 			
@@ -422,7 +422,7 @@ public class ServerStopEventHandler {
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				fourSecs.getStyle().setBold(true);
-				player.sendMessage(fourSecs);
+				player.sendChatMsg(fourSecs);
 				hasPosted4Sec = true;
 			}
 			
@@ -431,7 +431,7 @@ public class ServerStopEventHandler {
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				threeSecs.getStyle().setBold(true);
-				player.sendMessage(threeSecs);
+				player.sendChatMsg(threeSecs);
 				hasPosted3Sec = true;
 			}
 			
@@ -440,7 +440,7 @@ public class ServerStopEventHandler {
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				twoSecs.getStyle().setBold(true);
-				player.sendMessage(twoSecs);
+				player.sendChatMsg(twoSecs);
 				hasPosted2Sec = true;
 			}
 			
@@ -449,7 +449,7 @@ public class ServerStopEventHandler {
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
 				oneSec.getStyle().setBold(true);
-				player.sendMessage(oneSec);
+				player.sendChatMsg(oneSec);
 				hasPosted1Sec = true;
 			}
 			
@@ -466,7 +466,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
-				player.sendMessage(fiveMins);
+				player.sendChatMsg(fiveMins);
 				hasPosted5Min = true;
 			}
 			
@@ -474,7 +474,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
-				player.sendMessage(oneMin);
+				player.sendChatMsg(oneMin);
 				hasPosted1Min = true;
 			}
 			
@@ -482,7 +482,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
-				player.sendMessage(thirtySecs);
+				player.sendChatMsg(thirtySecs);
 				hasPosted30Sec = true;
 			}
 			
@@ -490,7 +490,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
-				player.sendMessage(tenSecs);
+				player.sendChatMsg(tenSecs);
 				hasPosted10Sec = true;
 			}
 			
@@ -499,7 +499,7 @@ public class ServerStopEventHandler {
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
 				fiveSecs.getStyle().setBold(true);
-				player.sendMessage(fiveSecs);
+				player.sendChatMsg(fiveSecs);
 				hasPosted5Sec = true;
 			}
 			
@@ -508,7 +508,7 @@ public class ServerStopEventHandler {
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				fourSecs.getStyle().setBold(true);
-				player.sendMessage(fourSecs);
+				player.sendChatMsg(fourSecs);
 				hasPosted4Sec = true;
 			}
 			
@@ -517,7 +517,7 @@ public class ServerStopEventHandler {
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				threeSecs.getStyle().setBold(true);
-				player.sendMessage(threeSecs);
+				player.sendChatMsg(threeSecs);
 				hasPosted3Sec = true;
 			}
 			
@@ -526,7 +526,7 @@ public class ServerStopEventHandler {
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				twoSecs.getStyle().setBold(true);
-				player.sendMessage(twoSecs);
+				player.sendChatMsg(twoSecs);
 				hasPosted2Sec = true;
 			}
 			
@@ -535,7 +535,7 @@ public class ServerStopEventHandler {
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
 				oneSec.getStyle().setBold(true);
-				player.sendMessage(oneSec);
+				player.sendChatMsg(oneSec);
 				hasPosted1Sec = true;
 			}
 			
@@ -552,7 +552,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
-				player.sendMessage(fiveMins);
+				player.sendChatMsg(fiveMins);
 				hasPosted5Min = true;
 			}
 			
@@ -560,7 +560,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
-				player.sendMessage(oneMin);
+				player.sendChatMsg(oneMin);
 				hasPosted1Min = true;
 			}
 			
@@ -568,7 +568,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
-				player.sendMessage(thirtySecs);
+				player.sendChatMsg(thirtySecs);
 				hasPosted30Sec = true;
 			}
 			
@@ -576,7 +576,7 @@ public class ServerStopEventHandler {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
-				player.sendMessage(tenSecs);
+				player.sendChatMsg(tenSecs);
 				hasPosted10Sec = true;
 			}
 			
@@ -585,7 +585,7 @@ public class ServerStopEventHandler {
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
 				fiveSecs.getStyle().setBold(true);
-				player.sendMessage(fiveSecs);
+				player.sendChatMsg(fiveSecs);
 				hasPosted5Sec = true;
 			}
 			
@@ -594,7 +594,7 @@ public class ServerStopEventHandler {
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				fourSecs.getStyle().setBold(true);
-				player.sendMessage(fourSecs);
+				player.sendChatMsg(fourSecs);
 				hasPosted4Sec = true;
 			}
 			
@@ -603,7 +603,7 @@ public class ServerStopEventHandler {
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				threeSecs.getStyle().setBold(true);
-				player.sendMessage(threeSecs);
+				player.sendChatMsg(threeSecs);
 				hasPosted3Sec = true;
 			}
 			
@@ -612,7 +612,7 @@ public class ServerStopEventHandler {
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
 				twoSecs.getStyle().setBold(true);
-				player.sendMessage(twoSecs);
+				player.sendChatMsg(twoSecs);
 				hasPosted2Sec = true;
 			}
 			
@@ -621,7 +621,7 @@ public class ServerStopEventHandler {
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
 				oneSec.getStyle().setBold(true);
-				player.sendMessage(oneSec);
+				player.sendChatMsg(oneSec);
 				hasPosted1Sec = true;
 			}
 			
@@ -648,7 +648,7 @@ public class ServerStopEventHandler {
 		EntityPlayerMP player = (EntityPlayerMP) event.player;
 		
 		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck == false) {
-        		player.sendMessage(ServerStopUpdateHandler.updateInfo);
+			player.addChatMessage(ServerStopUpdateHandler.updateInfo);
         }
     }
 	
