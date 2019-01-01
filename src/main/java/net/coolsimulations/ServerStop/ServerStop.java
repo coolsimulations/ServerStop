@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, dependencies = Reference.DEPENDENCIES, acceptableRemoteVersions = "*", updateJSON = "http://coolsimulations.net/mcmods/serverstop/versionchecker.json")
@@ -41,6 +42,13 @@ public class ServerStop {
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		System.out.println("Post Init");
+		
+	}
+	
+	@EventHandler
+	public void serverLoad(FMLServerStartingEvent event) {
+		
+		event.registerServerCommand(new CommandCancel());
 		
 	}
 }
