@@ -17,13 +17,13 @@ import net.minecraft.util.text.TextFormatting;
 public class CommandCancel extends CommandBase{
 
 	@Override
-	public String getName() {
+	public String getCommandName() {
 		
 		return "serverstop";
 	}
 
 	@Override
-	public String getUsage(ICommandSender sender) {
+	public String getCommandUsage(ICommandSender sender) {
 		
 		return ServerStopEventHandler.getTranslations("serverstop.commands.cancel.usage");
 	}
@@ -45,11 +45,11 @@ public class CommandCancel extends CommandBase{
         		if(ServerStopEventHandler.cancel == false) {
         			
         			ServerStopEventHandler.cancel = true;
-        			server.getPlayerList().sendMessage(cancelTrue);
+        			server.getPlayerList().sendChatMsg(cancelTrue);
         		} else {
         			
         			ServerStopEventHandler.cancel = false;
-        			server.getPlayerList().sendMessage(cancelFalse);
+        			server.getPlayerList().sendChatMsg(cancelFalse);
         		}
         }
 		
@@ -68,7 +68,7 @@ public class CommandCancel extends CommandBase{
     }
     
     @Override
-    public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos)
+    public List<String> getTabCompletionOptions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos)
     {
         return getListOfStringsMatchingLastWord(args);
     }
