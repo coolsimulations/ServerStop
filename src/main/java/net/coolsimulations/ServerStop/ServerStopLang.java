@@ -64,6 +64,21 @@ public class ServerStopLang {
 			return "%s ondersteun nie meer Minecraft Weergawe %s nie! Werk asseblief op na 'n nuwer Minecraft-weergawe vir meer funksies!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Sluiting van bedieners is weer aangeskakel!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Sluiting van bedieners is gekanselleer!";
+		}
+		
 		return text;
 	}
 	
@@ -127,6 +142,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "لم يعد %s يدعم إصدار Minecraft %s! يرجى التحديث إلى أحدث إصدار ماين كرافت لمزيد من الميزات!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": تم إعادة تمكين إيقاف تشغيل الخادم!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": تم إلغاء اغلاق الخادم!";
 		}
 		
 		return text;
@@ -194,6 +224,21 @@ public class ServerStopLang {
 			return "ня %s больш не падтрымлівае Minecraft версіі %s! Абнаўленне да больш новай версіі Minecraft больш магчымасцяў!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Завяршэнне працы сервера быў паўторна уключаны!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Завяршэнне працы сервера было адменена!";
+		}
+		
 		return text;
 	}
 	
@@ -257,6 +302,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s вече не поддържа Minecraft версия %s! Моля, актуализирайте до по-нова версия на Minecraft за повече функции!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Изключването на сървъра е активирано отново!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Спирането на сървъра е отменено!";
 		}
 		
 		return text;
@@ -324,6 +384,21 @@ public class ServerStopLang {
 			return "%s više ne podržava Minecraft Verziju %s! Molimo vas da ažurirate na noviju Verziju Minecraft za više mogućnosti!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Isključivanje servera je ponovo omogućeno!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Gašenje servera je otkazano!";
+		}
+		
 		return text;
 	}
 	
@@ -387,6 +462,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s ja no admet la Versió Minecraft %s! Actualitzeu-vos a una nova Versió de Minecraft per obtenir més funcions.";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": L'apagada del servidor s'ha tornat a habilitar.";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": L'apagada del servidor s'ha cancel·lat.";
 		}
 		
 		return text;
@@ -454,6 +544,21 @@ public class ServerStopLang {
 			return "%s již nepodporuje Verzi Minecraft %s! Aktualizujte prosím na novější Verzi Minecraft pro další funkce!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Vypnutí serveru bylo znovu zapnuto!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Vypnutí serveru bylo zrušeno!";
+		}
+		
 		return text;
 	}
 	
@@ -517,6 +622,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "Dydy %s ddim yn cefnogi'r gwaith ar y Minecraft Fersiwn %s Diweddarwch at Fersiwn Minecraft mwy newydd ar gyfer mwy o nodweddion!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Mae cau'r gweinydd wedi'i ail-alluogi!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Mae cau'r gweinydd wedi cael ei ganslo!";
 		}
 		
 		return text;
@@ -584,6 +704,21 @@ public class ServerStopLang {
 			return "%s understøtter ikke længere Minecraft Version %s! Opdater venligst til en nyere Minecraft Version for flere funktioner!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Serverafbrydelse er blevet aktiveret igen!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Afbrydelse af serveren er blevet annulleret!";
+		}
+		
 		return text;
 	}
 	
@@ -647,6 +782,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s unterstützt Minecraft Version %s nicht mehr! Bitte aktualisieren Sie auf eine neuere Minecraft Version, um weitere Funktionen zu erhalten!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Server heruntergefahren wurde wieder aktiviert!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Server heruntergefahren wurde abgebrochen!";
 		}
 		
 		return text;
@@ -714,6 +864,21 @@ public class ServerStopLang {
 			return "Το %s δεν υποστηρίζει πλέον την έκδοση Minecraft %s! Αναβαθμίστε σε μια νεότερη έκδοση Minecraft για περισσότερες δυνατότητες!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Ο τερματισμός του διακομιστή έχει ενεργοποιηθεί ξανά!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Ο τερματισμός του διακομιστή έχει ακυρωθεί!";
+		}
+		
 		return text;
 	}
 	
@@ -779,6 +944,21 @@ public class ServerStopLang {
 			return "%s no longer supports Minecraft Version %s! Please update to a newer Minecraft Version for more features!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Server shutdown has been re-enabled!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Server shutdown has been canceled!";
+		}
+		
 		return text;
 	}
 	
@@ -806,7 +986,7 @@ public class ServerStopLang {
 		
 		if(text == "serverstop.five_seconds") {
 			
-			return "Reference.MOD_NAME + \": argh, Five Seconds Remaining Before Server Shutdown!";
+			return Reference.MOD_NAME + ": Yargh, Five Seconds Remaining Before Server Shutdown!";
 		}
 		
 		if(text == "serverstop.four_seconds") {
@@ -842,6 +1022,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s no longer supports Minecraft Version %s! Update to a newer Minecraft Version for more features, Ya Scurvy Dog!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Aye! Server shutdown has been re-enabled!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Arrr! Server shutdown has been canceled!";
 		}
 		
 		return text;
@@ -909,6 +1104,21 @@ public class ServerStopLang {
 			return "¡sǝɹnʇɐǝɟ ǝɹoɯ ɹoɟ ǝʇɐpdn ǝsɐǝꞁԀ ¡ᘔ˙⥝⥝˙⥝ uoᴉsɹǝΛ ʇɟɐɹɔǝuᴉW sʇɹoddns ɹǝᵷuoꞁ ou doʇS ɹǝʌɹǝS";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "doʇsɹǝʌɹǝs/";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return "¡pǝꞁqɐuǝ-ǝɹ uǝǝq sɐɥ uʍopʇnɥs ɹǝʌɹǝS :doʇS ɹǝʌɹǝS";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return "¡pǝꞁǝɔuɐɔ uǝǝq sɐɥ uʍopʇnɥs ɹǝʌɹǝS :doʇS ɹǝʌɹǝS";
+		}
+		
 		return text;
 	}
 	
@@ -972,6 +1182,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s nay longer supports Minecraft V'rsion %s! Prithee update to a newer Minecraft V'rsion f'r further features!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": S'rv'r shutdown hast been re-enabled!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": S'rv'r shutdown hast been canceled!";
 		}
 		
 		return text;
@@ -1039,6 +1264,21 @@ public class ServerStopLang {
 			return "%s ne plu subtenas Minecraft Version %s! Bonvolu ĝisdatigi novan Minecraft Version por pli da trajtoj!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Serviloŝaltilo estis reeŝaltita!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Serviloŝlosilo estis nuligita!";
+		}
+		
 		return text;
 	}
 	
@@ -1102,6 +1342,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "¡%s ya no es compatible con la Versión de Minecraft %s! ¡Por favor, actualice a una Versión más reciente de Minecraft para ver más características!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": ¡El apagado del servidor se ha vuelto a habilitar!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": ¡El cierre del servidor ha sido cancelado!";
 		}
 		
 		return text;
@@ -1169,6 +1424,21 @@ public class ServerStopLang {
 			return "%s ei enää tue Minecraft Versiota %s! Päivitä uudemmalle Minecraft Versiolle lisää ominaisuuksia!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Palvelimen sammutus on otettu uudelleen käyttöön!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Palvelimen sammutus on peruutettu!";
+		}
+		
 		return text;
 	}
 	
@@ -1232,6 +1502,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s ne prend plus en charge la Version Minecraft %s! Veuillez mettre à jour votre Version de Minecraft pour obtenir plus de fonctionnalités!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": L'arrêt du serveur a été réactivé!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": L'arrêt du serveur a été annulé!";
 		}
 		
 		return text;
@@ -1299,6 +1584,21 @@ public class ServerStopLang {
 			return "%s više ne podržava Minecraft Verziju %s! Molimo Vas da ažurirate na noviju Verziju Minecrafta za više mogućnosti!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Isključivanje poslužitelja ponovno je omogućeno!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Gašenje poslužitelja je otkazano!";
+		}
+		
 		return text;
 	}
 	
@@ -1362,6 +1662,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s már nem támogatja a Minecraft %s Verzióját! Kérjük, frissítsen egy újabb Minecraft Verzióra további funkciókért!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": A kiszolgáló leállítása újra engedélyezett!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": A kiszolgáló leállítása megszakadt!";
 		}
 		
 		return text;
@@ -1429,6 +1744,21 @@ public class ServerStopLang {
 			return "%s non supporta più la Versione di Minecraft %s! Si prega di aggiornare a una Versione più recente di Minecraft per ulteriori funzionalità!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": L'arresto del server è stato riattivato!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": L'arresto del server è stato annullato!";
+		}
+		
 		return text;
 	}
 	
@@ -1492,6 +1822,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%sはMinecraftバージョン%sをサポートしなくなりました。 より多くの機能のために新しいMinecraftのバージョンにアップデートしてください！";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + "：サーバーのシャットダウンが再び有効になりました。";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + "：サーバのシャットダウンがキャンセルされました。";
 		}
 		
 		return text;
@@ -1559,6 +1904,21 @@ public class ServerStopLang {
 			return "%s은 더 이상 Minecraft 버전 %s를 지원하지 않습니다! 더 많은 기능을 보려면 최신 Minecraft 버전으로 업데이트하십시오!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": 서버 종료가 다시 활성화되었습니다!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": 서버 종료가 취소되었습니다!";
+		}
+		
 		return text;
 	}
 	
@@ -1622,6 +1982,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s ondersteunt niet langer Minecraft Versie %s! Werk bij naar een nieuwere Minecraft Versie voor meer functies!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Server shutdown is opnieuw ingeschakeld!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Server shutdown is geannuleerd!";
 		}
 		
 		return text;
@@ -1689,6 +2064,21 @@ public class ServerStopLang {
 			return "%s nie obsługuje już wersji Minecraft %s! Zaktualizuj do nowszej wersji Minecrafta, by zobaczyć więcej funkcji!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Zamknięcie serwera zostało ponownie włączone!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Zamknięcie serwera zostało anulowane!";
+		}
+		
 		return text;
 	}
 	
@@ -1752,6 +2142,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s não suporta mais a Versão de Minecraft %s! Por favor, atualize para uma Versão mais recente do Minecraft para mais recursos!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": O desligamento do servidor foi reativado!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": O encerramento do servidor foi cancelado!";
 		}
 		
 		return text;
@@ -1819,6 +2224,21 @@ public class ServerStopLang {
 			return "%s больше не поддерживает версию Minecraft %s! Пожалуйста, обновите Minecraft до новой версии, чтобы получить больше возможностей!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Отключение сервера было повторно включено!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Завершение работы сервера было отменено!";
+		}
+		
 		return text;
 	}
 	
@@ -1882,6 +2302,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s stöder inte längre Minecraft Version %s! Vänligen uppdatera till en nyare Minecraft Version för fler funktioner!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Serveravstängning har aktiverats igen!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Serveravstängning har!";
 		}
 		
 		return text;
@@ -1949,6 +2384,21 @@ public class ServerStopLang {
 			return "%s ไม่รองรับ Minecraft เวอร์ชั่น %s อีกต่อไป! โปรดอัปเดตเป็นเวอร์ชั่น Minecraft ที่ใหม่กว่าสำหรับคุณสมบัติเพิ่มเติม!";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": ปิดเซิร์ฟเวอร์แล้วได้เปิดใช้งานอีกครั้ง!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": การปิดเซิร์ฟเวอร์ถูกยกเลิก!";
+		}
+		
 		return text;
 	}
 	
@@ -2012,6 +2462,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "%s artık Minecraft Sürümünü desteklemiyor %s! Daha fazla özellik için lütfen daha yeni bir Minecraft Sürümü ile güncelleyin!";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + ": Sunucu kapatma tekrar etkinleştirildi!";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + ": Sunucunun kapatılması iptal edildi!";
 		}
 		
 		return text;
@@ -2079,6 +2544,21 @@ public class ServerStopLang {
 			return "％s不再支持Minecraft Version％s！ 请更新到更新的Minecraft版本以获取更多功能！";
 		}
 		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + "：服务器关闭已重新启用！";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + "：服务器关闭已被取消！";
+		}
+		
 		return text;
 	}
 	
@@ -2142,6 +2622,21 @@ public class ServerStopLang {
 		if(text == "serverstop.update.display3") {
 			
 			return "％s不再支持Minecraft Version ％s！ 請更新到更新的Minecraft版本以獲取更多功能！";
+		}
+		
+		if(text == "serverstop.commands.cancel.usage") {
+			
+			return "/serverstop";
+		}
+		
+		if(text == "serverstop.commands.cancel.display1") {
+			
+			return Reference.MOD_NAME + "：服務器關閉已重新啟用！";
+		}
+		
+		if(text == "serverstop.commands.cancel.display2") {
+			
+			return Reference.MOD_NAME + "：服務器關閉已被取消！";
 		}
 		
 		return text;

@@ -24,13 +24,14 @@ public class ServerStopEventHandler {
 	private static boolean hasPosted2Sec = false;
 	private static boolean hasPosted1Sec = false;
 	private static boolean hasStop = false;
+	public static boolean cancel = false;
 	
 	@SubscribeEvent
     public void onServerTickEvent(TickEvent.ServerTickEvent event) {
 		
 		PlayerList player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList();
 
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && ServerStopConfig.enableMonday == true) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && ServerStopConfig.enableMonday == true && cancel == false) {
 			
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
@@ -116,7 +117,7 @@ public class ServerStopEventHandler {
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY && ServerStopConfig.enableTuesday == true) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY && ServerStopConfig.enableTuesday == true && cancel == false) {
 			
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
@@ -202,7 +203,7 @@ public class ServerStopEventHandler {
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY && ServerStopConfig.enableWednesday == true) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY && ServerStopConfig.enableWednesday == true && cancel == false) {
 			
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
@@ -288,7 +289,7 @@ public class ServerStopEventHandler {
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY && ServerStopConfig.enableThursday == true) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY && ServerStopConfig.enableThursday == true && cancel == false) {
 			
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
@@ -374,7 +375,7 @@ public class ServerStopEventHandler {
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY && ServerStopConfig.enableFriday == true) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY && ServerStopConfig.enableFriday == true && cancel == false) {
 			
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
@@ -460,7 +461,7 @@ public class ServerStopEventHandler {
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && ServerStopConfig.enableSaturday == true) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && ServerStopConfig.enableSaturday == true && cancel == false) {
 			
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
@@ -546,7 +547,7 @@ public class ServerStopEventHandler {
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY && ServerStopConfig.enableSunday == true) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY && ServerStopConfig.enableSunday == true && cancel == false) {
 			
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
