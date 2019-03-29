@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["coolsim"],
   "credits": "To leviofpower and Jessen_House who have played a vital part in testing this mod on my server. Small credit to Google Translate and Microsoft Translate for the majority of the translations.",
-  "logoFile": "",
+  "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": []
 }
