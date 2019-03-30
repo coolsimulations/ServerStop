@@ -32,7 +32,7 @@ minecraft {
     // Use non-default mappings at your own risk. they may not always work.
     // simply re-run your setup task after changing the mappings to update your workspace.
     mappings = "snapshot_20161220"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 dependencies {
@@ -76,4 +76,18 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+
+task packDev(type: Jar) {
+    from sourceSets.main.output
+    from sourceSets.main.allJava
+    baseName = "ServerStop-Dev"
+    version = "${project.version}"
+
+    println(defaultTasks)
+}
+
+reobf {
+    packDev { }
+}
+
 }
