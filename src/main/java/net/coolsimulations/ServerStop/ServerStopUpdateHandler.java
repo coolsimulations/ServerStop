@@ -19,7 +19,7 @@ public class ServerStopUpdateHandler {
 	public static void init() {
 		
 		try {
-            URL url = new URL("http://coolsimulations.net/mcmods/serverstop/versionchecker112.txt");
+            URL url = new URL("https://coolsimulations.net/mcmods/serverstop/versionchecker112.txt");
             Scanner s = new Scanner(url.openStream());
             latestVersion = s.next();
             s.close();
