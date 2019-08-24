@@ -3,14 +3,15 @@ package net.coolsimulations.ServerStop;
 import java.util.Calendar;
 
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 public class ServerStopEventHandler {
 	
@@ -29,11 +30,12 @@ public class ServerStopEventHandler {
 	@SubscribeEvent
     public void onServerTickEvent(TickEvent.ServerTickEvent event) {
 		
-		PlayerList player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList();
+		MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+		PlayerList player = server.getPlayerList();
 
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && ServerStopConfig.enableMonday == true && cancel == false) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && ServerStopConfig.enableMonday.get() == true && cancel == false) {
 			
-			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
@@ -41,7 +43,7 @@ public class ServerStopEventHandler {
 				hasPosted5Min = true;
 			}
 			
-			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
@@ -49,7 +51,7 @@ public class ServerStopEventHandler {
 				hasPosted1Min = true;
 			}
 			
-			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
+			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
@@ -57,7 +59,7 @@ public class ServerStopEventHandler {
 				hasPosted30Sec = true;
 			}
 			
-			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
+			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
@@ -65,7 +67,7 @@ public class ServerStopEventHandler {
 				hasPosted10Sec = true;
 			}
 			
-			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
+			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
@@ -74,7 +76,7 @@ public class ServerStopEventHandler {
 				hasPosted5Sec = true;
 			}
 			
-			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
+			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -83,7 +85,7 @@ public class ServerStopEventHandler {
 				hasPosted4Sec = true;
 			}
 			
-			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
+			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -92,7 +94,7 @@ public class ServerStopEventHandler {
 				hasPosted3Sec = true;
 			}
 			
-			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
+			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -101,7 +103,7 @@ public class ServerStopEventHandler {
 				hasPosted2Sec = true;
 			}
 			
-			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
+			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
@@ -110,16 +112,16 @@ public class ServerStopEventHandler {
 				hasPosted1Sec = true;
 			}
 			
-			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
-				FMLCommonHandler.instance().getMinecraftServerInstance().initiateShutdown();
+				server.initiateShutdown();
 				hasStop = true;
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY && ServerStopConfig.enableTuesday == true && cancel == false) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY && ServerStopConfig.enableTuesday.get() == true && cancel == false) {
 			
-			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
@@ -127,7 +129,7 @@ public class ServerStopEventHandler {
 				hasPosted5Min = true;
 			}
 			
-			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
@@ -135,7 +137,7 @@ public class ServerStopEventHandler {
 				hasPosted1Min = true;
 			}
 			
-			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
+			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
@@ -143,7 +145,7 @@ public class ServerStopEventHandler {
 				hasPosted30Sec = true;
 			}
 			
-			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
+			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
@@ -151,7 +153,7 @@ public class ServerStopEventHandler {
 				hasPosted10Sec = true;
 			}
 			
-			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
+			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
@@ -160,7 +162,7 @@ public class ServerStopEventHandler {
 				hasPosted5Sec = true;
 			}
 			
-			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
+			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -169,7 +171,7 @@ public class ServerStopEventHandler {
 				hasPosted4Sec = true;
 			}
 			
-			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
+			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -178,7 +180,7 @@ public class ServerStopEventHandler {
 				hasPosted3Sec = true;
 			}
 			
-			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
+			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -187,7 +189,7 @@ public class ServerStopEventHandler {
 				hasPosted2Sec = true;
 			}
 			
-			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
+			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
@@ -196,16 +198,16 @@ public class ServerStopEventHandler {
 				hasPosted1Sec = true;
 			}
 			
-			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
-				FMLCommonHandler.instance().getMinecraftServerInstance().initiateShutdown();
+				server.initiateShutdown();
 				hasStop = true;
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY && ServerStopConfig.enableWednesday == true && cancel == false) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY && ServerStopConfig.enableWednesday.get() == true && cancel == false) {
 			
-			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
@@ -213,7 +215,7 @@ public class ServerStopEventHandler {
 				hasPosted5Min = true;
 			}
 			
-			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
@@ -221,7 +223,7 @@ public class ServerStopEventHandler {
 				hasPosted1Min = true;
 			}
 			
-			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
+			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
@@ -229,7 +231,7 @@ public class ServerStopEventHandler {
 				hasPosted30Sec = true;
 			}
 			
-			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
+			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
@@ -237,7 +239,7 @@ public class ServerStopEventHandler {
 				hasPosted10Sec = true;
 			}
 			
-			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
+			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
@@ -246,7 +248,7 @@ public class ServerStopEventHandler {
 				hasPosted5Sec = true;
 			}
 			
-			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
+			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -255,7 +257,7 @@ public class ServerStopEventHandler {
 				hasPosted4Sec = true;
 			}
 			
-			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
+			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -264,7 +266,7 @@ public class ServerStopEventHandler {
 				hasPosted3Sec = true;
 			}
 			
-			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
+			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -273,7 +275,7 @@ public class ServerStopEventHandler {
 				hasPosted2Sec = true;
 			}
 			
-			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
+			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
@@ -282,16 +284,16 @@ public class ServerStopEventHandler {
 				hasPosted1Sec = true;
 			}
 			
-			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
-				FMLCommonHandler.instance().getMinecraftServerInstance().initiateShutdown();
+				server.initiateShutdown();
 				hasStop = true;
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY && ServerStopConfig.enableThursday == true && cancel == false) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY && ServerStopConfig.enableThursday.get() == true && cancel == false) {
 			
-			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
@@ -299,7 +301,7 @@ public class ServerStopEventHandler {
 				hasPosted5Min = true;
 			}
 			
-			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
@@ -307,7 +309,7 @@ public class ServerStopEventHandler {
 				hasPosted1Min = true;
 			}
 			
-			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
+			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
@@ -315,7 +317,7 @@ public class ServerStopEventHandler {
 				hasPosted30Sec = true;
 			}
 			
-			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
+			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
@@ -323,7 +325,7 @@ public class ServerStopEventHandler {
 				hasPosted10Sec = true;
 			}
 			
-			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
+			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
@@ -332,7 +334,7 @@ public class ServerStopEventHandler {
 				hasPosted5Sec = true;
 			}
 			
-			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
+			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -341,7 +343,7 @@ public class ServerStopEventHandler {
 				hasPosted4Sec = true;
 			}
 			
-			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
+			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -350,7 +352,7 @@ public class ServerStopEventHandler {
 				hasPosted3Sec = true;
 			}
 			
-			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
+			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -359,7 +361,7 @@ public class ServerStopEventHandler {
 				hasPosted2Sec = true;
 			}
 			
-			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
+			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
@@ -368,16 +370,16 @@ public class ServerStopEventHandler {
 				hasPosted1Sec = true;
 			}
 			
-			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
-				FMLCommonHandler.instance().getMinecraftServerInstance().initiateShutdown();
+				server.initiateShutdown();
 				hasStop = true;
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY && ServerStopConfig.enableFriday == true && cancel == false) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY && ServerStopConfig.enableFriday.get() == true && cancel == false) {
 			
-			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
@@ -385,7 +387,7 @@ public class ServerStopEventHandler {
 				hasPosted5Min = true;
 			}
 			
-			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
@@ -393,7 +395,7 @@ public class ServerStopEventHandler {
 				hasPosted1Min = true;
 			}
 			
-			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
+			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
@@ -401,7 +403,7 @@ public class ServerStopEventHandler {
 				hasPosted30Sec = true;
 			}
 			
-			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
+			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
@@ -409,7 +411,7 @@ public class ServerStopEventHandler {
 				hasPosted10Sec = true;
 			}
 			
-			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
+			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
@@ -418,7 +420,7 @@ public class ServerStopEventHandler {
 				hasPosted5Sec = true;
 			}
 			
-			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
+			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -427,7 +429,7 @@ public class ServerStopEventHandler {
 				hasPosted4Sec = true;
 			}
 			
-			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
+			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -436,7 +438,7 @@ public class ServerStopEventHandler {
 				hasPosted3Sec = true;
 			}
 			
-			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
+			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -445,7 +447,7 @@ public class ServerStopEventHandler {
 				hasPosted2Sec = true;
 			}
 			
-			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
+			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
@@ -454,16 +456,16 @@ public class ServerStopEventHandler {
 				hasPosted1Sec = true;
 			}
 			
-			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
-				FMLCommonHandler.instance().getMinecraftServerInstance().initiateShutdown();
+				server.initiateShutdown();
 				hasStop = true;
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && ServerStopConfig.enableSaturday == true && cancel == false) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && ServerStopConfig.enableSaturday.get() == true && cancel == false) {
 			
-			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
@@ -471,7 +473,7 @@ public class ServerStopEventHandler {
 				hasPosted5Min = true;
 			}
 			
-			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
@@ -479,7 +481,7 @@ public class ServerStopEventHandler {
 				hasPosted1Min = true;
 			}
 			
-			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
+			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
@@ -487,7 +489,7 @@ public class ServerStopEventHandler {
 				hasPosted30Sec = true;
 			}
 			
-			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
+			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
@@ -495,7 +497,7 @@ public class ServerStopEventHandler {
 				hasPosted10Sec = true;
 			}
 			
-			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
+			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
@@ -504,7 +506,7 @@ public class ServerStopEventHandler {
 				hasPosted5Sec = true;
 			}
 			
-			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
+			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -513,7 +515,7 @@ public class ServerStopEventHandler {
 				hasPosted4Sec = true;
 			}
 			
-			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
+			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -522,7 +524,7 @@ public class ServerStopEventHandler {
 				hasPosted3Sec = true;
 			}
 			
-			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
+			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -531,7 +533,7 @@ public class ServerStopEventHandler {
 				hasPosted2Sec = true;
 			}
 			
-			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
+			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
@@ -540,16 +542,16 @@ public class ServerStopEventHandler {
 				hasPosted1Sec = true;
 			}
 			
-			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
-				FMLCommonHandler.instance().getMinecraftServerInstance().initiateShutdown();
+				server.initiateShutdown();
 				hasStop = true;
 			}
 		}
 		
-		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY && ServerStopConfig.enableSunday == true && cancel == false) {
+		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY && ServerStopConfig.enableSunday.get() == true && cancel == false) {
 			
-			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString fiveMins = new TextComponentString(getTranslations("serverstop.five_minutes"));
 				fiveMins.getStyle().setColor(TextFormatting.AQUA);
@@ -557,7 +559,7 @@ public class ServerStopEventHandler {
 				hasPosted5Min = true;
 			}
 			
-			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				TextComponentString oneMin = new TextComponentString(getTranslations("serverstop.one_minute"));
 				oneMin.getStyle().setColor(TextFormatting.DARK_AQUA);
@@ -565,7 +567,7 @@ public class ServerStopEventHandler {
 				hasPosted1Min = true;
 			}
 			
-			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
+			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				TextComponentString thirtySecs = new TextComponentString(getTranslations("serverstop.thirty_seconds"));
 				thirtySecs.getStyle().setColor(TextFormatting.GOLD);
@@ -573,7 +575,7 @@ public class ServerStopEventHandler {
 				hasPosted30Sec = true;
 			}
 			
-			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
+			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				TextComponentString tenSecs = new TextComponentString(getTranslations("serverstop.ten_seconds"));
 				tenSecs.getStyle().setColor(TextFormatting.YELLOW);
@@ -581,7 +583,7 @@ public class ServerStopEventHandler {
 				hasPosted10Sec = true;
 			}
 			
-			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
+			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				TextComponentString fiveSecs = new TextComponentString(getTranslations("serverstop.five_seconds"));
 				fiveSecs.getStyle().setColor(TextFormatting.RED);
@@ -590,7 +592,7 @@ public class ServerStopEventHandler {
 				hasPosted5Sec = true;
 			}
 			
-			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
+			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				TextComponentString fourSecs = new TextComponentString(getTranslations("serverstop.four_seconds"));
 				fourSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -599,7 +601,7 @@ public class ServerStopEventHandler {
 				hasPosted4Sec = true;
 			}
 			
-			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
+			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				TextComponentString threeSecs = new TextComponentString(getTranslations("serverstop.three_seconds"));
 				threeSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -608,7 +610,7 @@ public class ServerStopEventHandler {
 				hasPosted3Sec = true;
 			}
 			
-			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
+			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				TextComponentString twoSecs = new TextComponentString(getTranslations("serverstop.two_seconds"));
 				twoSecs.getStyle().setColor(TextFormatting.DARK_RED);
@@ -617,7 +619,7 @@ public class ServerStopEventHandler {
 				hasPosted2Sec = true;
 			}
 			
-			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
+			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				TextComponentString oneSec = new TextComponentString(getTranslations("serverstop.one_second"));
 				oneSec.getStyle().setColor(TextFormatting.DARK_RED);
@@ -626,9 +628,9 @@ public class ServerStopEventHandler {
 				hasPosted1Sec = true;
 			}
 			
-			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute && Calendar.getInstance().get(Calendar.SECOND) == 0) {
+			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
-				FMLCommonHandler.instance().getMinecraftServerInstance().initiateShutdown();
+				server.initiateShutdown();
 				hasStop = true;
 			}
 		}
@@ -639,16 +641,16 @@ public class ServerStopEventHandler {
     {
         if (event.getModID().equals(Reference.MOD_ID))
         {
-            ServerStopConfig.syncConfig(false);
+            //ServerStopConfig.syncConfig(false);
         }
     }
 	
 	@SubscribeEvent
 	public void onplayerLogin(PlayerLoggedInEvent event)
     {
-		EntityPlayerMP player = (EntityPlayerMP) event.player;
+		EntityPlayerMP player = (EntityPlayerMP) event.getPlayer();
 		
-		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck == false) {
+		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck.get() == false) {
         		player.sendMessage(ServerStopUpdateHandler.updateInfo);
         }
     }

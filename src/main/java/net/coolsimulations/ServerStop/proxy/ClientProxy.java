@@ -1,8 +1,8 @@
 package net.coolsimulations.ServerStop.proxy;
 
-public class ClientProxy implements CommonProxy{
+public class ClientProxy extends CommonProxy{
 
-	public void init() {
+	public static void init() {
 		
 		
 	}

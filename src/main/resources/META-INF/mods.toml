@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[25,]"
+issueTrackerURL="http://github.com/coolsimulations/serverstop/issues/"
+logoFile="logo.png"
+
+[[mods]]
+    modId="serverstop"
+    version="${version}"
+    updateJSONURL="https://coolsimulations.net/mcmods/serverstop/versionchecker.json"
+    displayURL="https://curseforge.com/minecraft/mc-mods/serverstop"
+    displayName="ServerStop"
+    credits="To leviofpower and Jessen_House who have played a vital part in testing this mod on my server. Small credit to Google Translate and Microsoft Translate for the majority of the translations."
+    authors="coolsim"
+    description='''
+    A small server-side mod that auto-shutdowns a server at a certain time on a certain day.
+    '''
+[[dependencies.serverstop]]
+    modId="forge"
+    mandatory=true
+    versionRange="[25,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.serverstop]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.13.2]"
+    ordering="NONE"
+    side="BOTH"

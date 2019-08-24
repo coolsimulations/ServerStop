@@ -3,7 +3,7 @@
  import net.coolsimulations.ServerStop.ServerStopEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 
-public interface CommonProxy {
+public class CommonProxy {
 	
 	public static void init() {
 		

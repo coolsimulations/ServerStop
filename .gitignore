@@ -5,9 +5,14 @@
 /run/
 /.gradle/
 /.settings/
+/src/test/
+/out/
 .classpath
 .project
-*.launch
+.idea
+*.launch*
+*.gradleBOP
+*.propertiesBOP
 
 #OS generated files
 *.DS_Store

@@ -1,223 +1,202 @@
 package net.coolsimulations.ServerStop;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import org.apache.commons.lang3.tuple.Pair;
 
-import org.apache.logging.log4j.Level;
-
-import net.minecraftforge.common.config.ConfigElement;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
-import net.minecraftforge.fml.client.config.IConfigElement;
-import net.minecraftforge.fml.relauncher.FMLRelaunchLog;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.minecraftforge.common.ForgeConfigSpec.IntValue;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
 
 
 public class ServerStopConfig {
 	
-	static Configuration config;
+	public static ConfigValue<String> serverLang;
 	
-	public static String serverLang;
+	public static BooleanValue enableMonday;
+	public static IntValue mondayHour;
+	public static IntValue mondayMinute;
 	
-	public static Boolean enableMonday;
-	public static int mondayHour;
-	public static int mondayMinute;
+	public static BooleanValue enableTuesday;
+	public static IntValue tuesdayHour;
+	public static IntValue tuesdayMinute;
 	
-	public static Boolean enableTuesday;
-	public static int tuesdayHour;
-	public static int tuesdayMinute;
+	public static BooleanValue enableWednesday;
+	public static IntValue wednesdayHour;
+	public static IntValue wednesdayMinute;
 	
-	public static Boolean enableWednesday;
-	public static int wednesdayHour;
-	public static int wednesdayMinute;
+	public static BooleanValue enableThursday;
+	public static IntValue thursdayHour;
+	public static IntValue thursdayMinute;
 	
-	public static Boolean enableThursday;
-	public static int thursdayHour;
-	public static int thursdayMinute;
+	public static BooleanValue enableFriday;
+	public static IntValue fridayHour;
+	public static IntValue fridayMinute;
 	
-	public static Boolean enableFriday;
-	public static int fridayHour;
-	public static int fridayMinute;
+	public static BooleanValue enableSaturday;
+	public static IntValue saturdayHour;
+	public static IntValue saturdayMinute;
 	
-	public static Boolean enableSaturday;
-	public static int saturdayHour;
-	public static int saturdayMinute;
+	public static BooleanValue enableSunday;
+	public static IntValue sundayHour;
+	public static IntValue sundayMinute;
 	
-	public static Boolean enableSunday;
-	public static int sundayHour;
-	public static int sundayMinute;
-	
-    public static boolean disableUpdateCheck;
-	
-	public static void init(File file)
-    {
-        config = new Configuration(file);
-        syncConfig(true);
-    }
-	
-    public static void forceSave()
-    {
-    	config.save();
-    }
-	
-	 public static void syncConfig(boolean load)
-	    {
-	        List<String> propOrder = new ArrayList<String>();
+    public static BooleanValue disableUpdateCheck;
+    
+    public static class Common {
 
-	        try
-	        {
-	            Property prop;
+		Common(final ForgeConfigSpec.Builder builder) {
+			builder.comment("Lang Settings")
+					.push("lang");
+			
+			serverLang = builder
+					.comment("Server language codes are based off the Minecraft .lang files. See https://minecraft.gamepedia.com/Language for list.")
+					.define("serverLang", "en_us");
+			
+			builder.pop();
+			
+			builder.comment("Util Settings")
+			.push("util");
+			
+			disableUpdateCheck = builder
+					.comment("Disable ServerStop Update Checker Message")
+					.define("disableUpdateCheck", false);
+			
+			builder.pop();
+			
+			builder.comment("Monday Settings")
+			.push("monday");
+			
+			enableMonday = builder
+					.comment("If this is enabled, at a time specified below the server will auto-shutdown.")
+					.define("enableMonday", true);
+			
+			mondayHour = builder
+					.comment("On Monday this is the hour the server will auto-shutdown. It uses 24-hour time.")
+					.defineInRange("mondayHour", 12, 0, 23);
+			
+			mondayMinute = builder
+					.comment("On Monday this is the minute the server will auto-shutdown.")
+					.defineInRange("mondayMinute", 0, 0, 59);
+			
+			builder.pop();
+			
+			builder.comment("Tuesday Settings")
+			.push("tuesday");
+			
+			enableTuesday = builder
+					.comment("If this is enabled, at a time specified below the server will auto-shutdown.")
+					.define("enableTuesday", true);
+			
+			tuesdayHour = builder
+					.comment("On Tuesday this is the hour the server will auto-shutdown. It uses 24-hour time.")
+					.defineInRange("tuesdayHour", 12, 0, 23);
+			
+			tuesdayMinute = builder
+					.comment("On Tuesday this is the minute the server will auto-shutdown.")
+					.defineInRange("tuesdayMinute", 0, 0, 59);
+			
+			builder.pop();
+			
+			builder.comment("Wednesday Settings")
+			.push("wednesday");
+			
+			enableWednesday = builder
+					.comment("If this is enabled, at a time specified below the server will auto-shutdown.")
+					.define("enableWednesday", true);
+			
+			wednesdayHour = builder
+					.comment("On Wednesday this is the hour the server will auto-shutdown. It uses 24-hour time.")
+					.defineInRange("wednesdayHour", 12, 0, 23);
+			
+			wednesdayMinute = builder
+					.comment("On Wednesday this is the minute the server will auto-shutdown.")
+					.defineInRange("wednesdayMinute", 0, 0, 59);
+			
+			builder.pop();
+			
+			builder.comment("Thursday Settings")
+			.push("thursday");
+			
+			enableThursday = builder
+					.comment("If this is enabled, at a time specified below the server will auto-shutdown.")
+					.define("enableThursday", true);
+			
+			thursdayHour = builder
+					.comment("On Thursday this is the hour the server will auto-shutdown. It uses 24-hour time.")
+					.defineInRange("thursdayHour", 12, 0, 23);
+			
+			thursdayMinute = builder
+					.comment("On Thursday this is the minute the server will auto-shutdown.")
+					.defineInRange("thursdayMinute", 0, 0, 59);
+			
+			builder.pop();
+			
+			builder.comment("Friday Settings")
+			.push("friday");
+			
+			enableFriday = builder
+					.comment("If this is enabled, at a time specified below the server will auto-shutdown.")
+					.define("enableFriday", true);
+			
+			fridayHour = builder
+					.comment("On Friday this is the hour the server will auto-shutdown. It uses 24-hour time.")
+					.defineInRange("fridayHour", 12, 0, 23);
+			
+			fridayMinute = builder
+					.comment("On Friday this is the minute the server will auto-shutdown.")
+					.defineInRange("fridayMinute", 0, 0, 59);
+			
+			builder.pop();
+			
+			builder.comment("Saturday Settings")
+			.push("saturday");
+			
+			enableSaturday = builder
+					.comment("If this is enabled, at a time specified below the server will auto-shutdown.")
+					.define("enableSaturday", true);
+			
+			saturdayHour = builder
+					.comment("On Saturday this is the hour the server will auto-shutdown. It uses 24-hour time.")
+					.defineInRange("saturdayHour", 12, 0, 23);
+			
+			saturdayMinute = builder
+					.comment("On Saturday this is the minute the server will auto-shutdown.")
+					.defineInRange("saturdayMinute", 0, 0, 59);
+			
+			builder.pop();
+			
+			builder.comment("Sunday Settings")
+			.push("sunday");
+			
+			enableSunday = builder
+					.comment("If this is enabled, at a time specified below the server will auto-shutdown.")
+					.define("enableSunday", true);
+			
+			sundayHour = builder
+					.comment("On Sunday this is the hour the server will auto-shutdown. It uses 24-hour time.")
+					.defineInRange("sundayHour", 12, 0, 23);
+			
+			sundayMinute = builder
+					.comment("On Sunday this is the minute the server will auto-shutdown.")
+					.defineInRange("sundayMinute", 0, 0, 59);
+			
+			builder.pop();
+		}
+    }
+    
+	private static final ForgeConfigSpec commonSpec;
+	public static final Common COMMON;
+	
+	static {
+		final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
+		commonSpec = specPair.getRight();
+		COMMON = specPair.getLeft();
+	}
 
-	            if (!config.isChild)
-	            {
-	                if (load)
-	                {
-	                    config.load();
-	                }
-	            }
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_LANG, "Default Server language", "en_us");
-	            prop.setComment("Server language codes are based off the Minecraft .lang files. See https://minecraft.gamepedia.com/Language for list.");
-	            serverLang = prop.getString();
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_UTIL, "Disable ServerStop Update Checker Message", false);
-	            disableUpdateCheck = prop.getBoolean(false);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_MONDAY, "Enable Monday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
-	            enableMonday = prop.getBoolean(true);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_MONDAY, "Monday Server Shutdown Hour", 12);
-	            prop.setComment("On Monday this is the hour the server will auto-shutdown. It uses 24-hour time.");
-	            mondayHour = prop.getInt(12);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_MONDAY, "Monday Server Shutdown Minute", 0);
-	            prop.setComment("On Monday this is the minute the server will auto-shutdown.");
-	            mondayMinute = prop.getInt(0);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_TUESDAY, "Enable Tuesday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
-	            enableTuesday = prop.getBoolean(true);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_TUESDAY, "Tuesday Server Shutdown Hour", 12);
-	            prop.setComment("On Tuesday this is the hour the server will auto-shutdown. It uses 24-hour time.");
-	            tuesdayHour = prop.getInt(12);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_TUESDAY, "Tuesday Server Shutdown Minute", 0);
-	            prop.setComment("On Tuesday this is the minute the server will auto-shutdown.");
-	            tuesdayMinute = prop.getInt(0);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_WEDNESDAY, "Enable Wednesday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
-	            enableWednesday = prop.getBoolean(true);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_WEDNESDAY, "Wednesday Server Shutdown Hour", 12);
-	            prop.setComment("On Wednesday this is the hour the server will auto-shutdown. It uses 24-hour time.");
-	            wednesdayHour = prop.getInt(12);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_WEDNESDAY, "Wednesday Server Shutdown Minute", 0);
-	            prop.setComment("On Wednesday this is the minute the server will auto-shutdown.");
-	            wednesdayMinute = prop.getInt(0);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_THURSDAY, "Enable Thursday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
-	            enableThursday = prop.getBoolean(true);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_THURSDAY, "Thursday Server Shutdown Hour", 12);
-	            prop.setComment("On Thursday this is the hour the server will auto-shutdown. It uses 24-hour time.");
-	            thursdayHour = prop.getInt(12);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_THURSDAY, "Thursday Server Shutdown Minute", 0);
-	            prop.setComment("On Thursday this is the minute the server will auto-shutdown.");
-	            thursdayMinute = prop.getInt(0);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_FRIDAY, "Enable Friday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
-	            enableFriday = prop.getBoolean(true);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_FRIDAY, "Friday Server Shutdown Hour", 12);
-	            prop.setComment("On Friday this is the hour the server will auto-shutdown. It uses 24-hour time.");
-	            fridayHour = prop.getInt(12);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_FRIDAY, "Friday Server Shutdown Minute", 0);
-	            prop.setComment("On Friday this is the minute the server will auto-shutdown.");
-	            fridayMinute = prop.getInt(0);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_SATURDAY, "Enable Saturday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
-	            enableSaturday = prop.getBoolean(true);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_SATURDAY, "Saturday Server Shutdown Hour", 12);
-	            prop.setComment("On Saturday this is the hour the server will auto-shutdown. It uses 24-hour time.");
-	            saturdayHour = prop.getInt(12);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_SATURDAY, "Saturday Server Shutdown Minute", 0);
-	            prop.setComment("On Saturday this is the minute the server will auto-shutdown.");
-	            saturdayMinute = prop.getInt(0);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_SUNDAY, "Enable Sunday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
-	            enableSunday = prop.getBoolean(true);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_SUNDAY, "Sunday Server Shutdown Hour", 12);
-	            prop.setComment("On Sunday this is the hour the server will auto-shutdown. It uses 24-hour time.");
-	            sundayHour = prop.getInt(12);
-	            propOrder.add(prop.getName());
-	            
-	            prop = config.get(Reference.CONFIG_CATEGORY_SUNDAY, "Sunday Server Shutdown Minute", 0);
-	            prop.setComment("On Sunday this is the minute the server will auto-shutdown.");
-	            sundayMinute = prop.getInt(0);
-	            propOrder.add(prop.getName());
-	            
-	            propOrder.add(prop.getName());
-	            
-	            if (config.hasChanged())
-	            {
-	                config.save();
-	            }
-	            
-	        }
-	        catch (final Exception e)
-	        {
-	        	FMLRelaunchLog.log(Reference.MOD_NAME, Level.ERROR, ("Problem loading SurvivalPlus config (\"SurvivalPlus.conf\")"));
-	            e.printStackTrace();
-	        }
-	    }
-	 
-	 public static List<IConfigElement> getConfigElements()
-	    {
-	        List<IConfigElement> list = new ArrayList<IConfigElement>();
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_LANG)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_MONDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_TUESDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_WEDNESDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_THURSDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_FRIDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_SATURDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_SUNDAY)).getChildElements());
-	        return list;
-	    }
+	public static void register(final ModLoadingContext context) {
+		context.registerConfig(ModConfig.Type.COMMON, commonSpec);
+	}
 
 }

@@ -1,54 +1,43 @@
 package net.coolsimulations.ServerStop;
 
-import java.io.File;
-
+import net.coolsimulations.ServerStop.proxy.ClientProxy;
 import net.coolsimulations.ServerStop.proxy.CommonProxy;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, dependencies = Reference.DEPENDENCIES, acceptableRemoteVersions = "*", updateJSON = "https://coolsimulations.net/mcmods/serverstop/versionchecker.json")
+@Mod(value = Reference.MOD_ID)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ServerStop {
 	
-	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
-	public static CommonProxy proxy;
+	 public static CommonProxy proxy = (CommonProxy) DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 	
-	@Mod.Instance(Reference.MOD_ID)
-	public static ServerStop instance;
+	private static ServerStop instance;
+	public static ServerStop getInstance()
+    {
+        return instance;
+    }
 	
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event)
-	{
-		System.out.println("Pre Init");
-		ServerStopConfig.init(new File(event.getModConfigurationDirectory(), Reference.SERVERSTOP_CONFIG_FILE));
+	public ServerStop() {
+		
+		ServerStopConfig.register(ModLoadingContext.get());
 		ServerStopUpdateHandler.init();
-	}
-	
-	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-		System.out.println("Init");
-		if(event.getSide() == Side.SERVER) { 
+		 
+		if(FMLEnvironment.dist == Dist.DEDICATED_SERVER) {
 			CommonProxy.init();
 		}
-	}
-	
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event)
-	{
-		System.out.println("Post Init");
 		
 	}
 	
-	@EventHandler
-	public void serverLoad(FMLServerStartingEvent event) {
+	@SubscribeEvent
+	public static void serverLoad(FMLServerStartingEvent event) {
 		
-		event.registerServerCommand(new CommandCancel());
+		CommandCancel.register(event.getCommandDispatcher());
 		
 	}
 }

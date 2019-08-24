@@ -8,7 +8,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.versions.mcp.MCPVersion;
 
 public class ServerStopUpdateHandler {
 	
@@ -19,7 +19,7 @@ public class ServerStopUpdateHandler {
 	public static void init() {
 		
 		try {
-            URL url = new URL("https://coolsimulations.net/mcmods/serverstop/versionchecker112.txt");
+            URL url = new URL("https://coolsimulations.net/mcmods/serverstop/versionchecker113.txt");
             Scanner s = new Scanner(url.openStream());
             latestVersion = s.next();
             s.close();
@@ -36,14 +36,14 @@ public class ServerStopUpdateHandler {
 				TextComponentString ss = new TextComponentString(Reference.MOD_NAME);
 				ss.getStyle().setColor(TextFormatting.BLUE);
 				
-				TextComponentString MCVersion = new TextComponentString(MinecraftForge.MC_VERSION);
+				TextComponentString MCVersion = new TextComponentString(MCPVersion.getMCVersion());
 				MCVersion.getStyle().setColor(TextFormatting.BLUE);
 				
 				updateInfo = new TextComponentTranslation(ServerStopEventHandler.getTranslations("serverstop.update.display3"), new Object[] {ss, MCVersion});
 				updateInfo.getStyle().setColor(TextFormatting.YELLOW);
 				
 				updateInfo.getStyle().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-				updateInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://minecraft.curseforge/projects/serverstop"));
+				updateInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
 				
 			}
 			
@@ -61,7 +61,7 @@ public class ServerStopUpdateHandler {
 				updateInfo.getStyle().setColor(TextFormatting.YELLOW);
 				
 				updateInfo.getStyle().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-				updateInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://minecraft.curseforge/projects/serverstop"));
+				updateInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
 				
 			}
 			
