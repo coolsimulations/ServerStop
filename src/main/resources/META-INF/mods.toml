@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[25,]"
+loaderVersion="[28,]"
 issueTrackerURL="http://github.com/coolsimulations/serverstop/issues/"
 logoFile="logo.png"
 
@@ -17,12 +17,12 @@ logoFile="logo.png"
 [[dependencies.serverstop]]
     modId="forge"
     mandatory=true
-    versionRange="[25,)"
+    versionRange="[28,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.serverstop]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.13.2]"
+    versionRange="[1.14.4]"
     ordering="NONE"
     side="BOTH"

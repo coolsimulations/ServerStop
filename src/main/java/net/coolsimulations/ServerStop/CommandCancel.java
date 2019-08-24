@@ -7,8 +7,8 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.util.text.TextFormatting;
 
 public class CommandCancel {
@@ -21,8 +21,8 @@ public class CommandCancel {
 
 	private static int cancel(CommandSource sender) {
 
-		TextComponentString cancelFalse= new TextComponentString(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.display1"));
-		TextComponentString cancelTrue = new TextComponentString(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.display2"));
+		StringTextComponent cancelFalse= new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.display1"));
+		StringTextComponent cancelTrue = new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.display2"));
 		
 		cancelFalse.getStyle().setColor(TextFormatting.YELLOW);
 		cancelTrue.getStyle().setColor(TextFormatting.YELLOW);
