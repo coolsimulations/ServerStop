@@ -10,7 +10,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 public class ServerStopEventHandler {
@@ -634,15 +633,6 @@ public class ServerStopEventHandler {
 				hasStop = true;
 			}
 		}
-    }
-	
-	@SubscribeEvent
-	public void onConfigChanged(ConfigChangedEvent event)
-    {
-        if (event.getModID().equals(Reference.MOD_ID))
-        {
-            //ServerStopConfig.syncConfig(false);
-        }
     }
 	
 	@SubscribeEvent
