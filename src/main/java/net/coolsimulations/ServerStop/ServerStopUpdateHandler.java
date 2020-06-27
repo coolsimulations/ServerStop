@@ -42,8 +42,8 @@ public class ServerStopUpdateHandler {
 				updateInfo = new TranslationTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display3"), new Object[] {ss, MCVersion});
 				updateInfo.func_240699_a_(TextFormatting.YELLOW);
 				
-				updateInfo.getStyle().func_240716_a_(new HoverEvent(HoverEvent.Action.field_230550_a_, new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-				updateInfo.getStyle().func_240715_a_(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
+				//updateInfo.getStyle().func_240716_a_(new HoverEvent(HoverEvent.Action.field_230550_a_, new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
+				//updateInfo.getStyle().func_240715_a_(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
 				
 			}
 			
@@ -60,8 +60,8 @@ public class ServerStopUpdateHandler {
 				updateInfo = new TranslationTextComponent(ServerStopEventHandler.getTranslations("sp.update.display1"), new Object[] {ss, version});
 				updateInfo.func_240699_a_(TextFormatting.YELLOW);
 				
-				updateInfo.getStyle().func_240716_a_(new HoverEvent(HoverEvent.Action.field_230550_a_, new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-				updateInfo.getStyle().func_240715_a_(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
+				//updateInfo.getStyle().func_240716_a_(new HoverEvent(HoverEvent.Action.field_230550_a_, new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
+				//updateInfo.getStyle().func_240715_a_(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
 				
 			}
 			
