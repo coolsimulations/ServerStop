@@ -3,12 +3,12 @@ package net.coolsimulations.ServerStop;
 import net.coolsimulations.ServerStop.proxy.ClientProxy;
 import net.coolsimulations.ServerStop.proxy.CommonProxy;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
 @Mod(value = Reference.MOD_ID)
@@ -30,14 +30,15 @@ public class ServerStop {
 		 
 		if(FMLEnvironment.dist == Dist.DEDICATED_SERVER) {
 			CommonProxy.init();
+			MinecraftForge.EVENT_BUS.register(this);
 		}
 		
 	}
 	
 	@SubscribeEvent
-	public static void serverLoad(FMLServerStartingEvent event) {
+	public static void command(RegisterCommandsEvent event) {
 		
-		CommandCancel.register(event.getCommandDispatcher());
+		CommandCancel.register(event.getDispatcher());
 		
 	}
 }
