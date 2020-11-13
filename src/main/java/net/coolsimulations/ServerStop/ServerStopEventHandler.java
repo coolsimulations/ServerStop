@@ -41,77 +41,77 @@ public class ServerStopEventHandler {
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent fiveMins = new StringTextComponent(getTranslations("serverstop.five_minutes"));
-				fiveMins.func_240699_a_(TextFormatting.AQUA);
-				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveMins.mergeStyle(TextFormatting.AQUA);
+				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Min = true;
 			}
 			
 			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent oneMin = new StringTextComponent(getTranslations("serverstop.one_minute"));
-				oneMin.func_240699_a_(TextFormatting.DARK_AQUA);
-				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.field_240973_b_);
+				oneMin.mergeStyle(TextFormatting.DARK_AQUA);
+				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Min = true;
 			}
 			
 			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				StringTextComponent thirtySecs = new StringTextComponent(getTranslations("serverstop.thirty_seconds"));
-				thirtySecs.func_240699_a_(TextFormatting.GOLD);
-				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.field_240973_b_);
+				thirtySecs.mergeStyle(TextFormatting.GOLD);
+				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted30Sec = true;
 			}
 			
 			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				StringTextComponent tenSecs = new StringTextComponent(getTranslations("serverstop.ten_seconds"));
-				tenSecs.func_240699_a_(TextFormatting.YELLOW);
-				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				tenSecs.mergeStyle(TextFormatting.YELLOW);
+				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted10Sec = true;
 			}
 			
 			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				StringTextComponent fiveSecs = new StringTextComponent(getTranslations("serverstop.five_seconds"));
-				fiveSecs.func_240699_a_(TextFormatting.RED);
-				fiveSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveSecs.mergeStyle(TextFormatting.RED);
+				fiveSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Sec = true;
 			}
 			
 			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				StringTextComponent fourSecs = new StringTextComponent(getTranslations("serverstop.four_seconds"));
-				fourSecs.func_240699_a_(TextFormatting.DARK_RED);
-				fourSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fourSecs.mergeStyle(TextFormatting.DARK_RED);
+				fourSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted4Sec = true;
 			}
 			
 			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				StringTextComponent threeSecs = new StringTextComponent(getTranslations("serverstop.three_seconds"));
-				threeSecs.func_240699_a_(TextFormatting.DARK_RED);
-				threeSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				threeSecs.mergeStyle(TextFormatting.DARK_RED);
+				threeSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted3Sec = true;
 			}
 			
 			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				StringTextComponent twoSecs = new StringTextComponent(getTranslations("serverstop.two_seconds"));
-				twoSecs.func_240699_a_(TextFormatting.DARK_RED);
-				twoSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				twoSecs.mergeStyle(TextFormatting.DARK_RED);
+				twoSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted2Sec = true;
 			}
 			
 			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.mondayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.mondayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				StringTextComponent oneSec = new StringTextComponent(getTranslations("serverstop.one_second"));
-				oneSec.func_240699_a_(TextFormatting.DARK_RED);
-				oneSec.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.field_240973_b_);
+				oneSec.mergeStyle(TextFormatting.DARK_RED);
+				oneSec.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Sec = true;
 			}
 			
@@ -127,77 +127,77 @@ public class ServerStopEventHandler {
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent fiveMins = new StringTextComponent(getTranslations("serverstop.five_minutes"));
-				fiveMins.func_240699_a_(TextFormatting.AQUA);
-				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveMins.mergeStyle(TextFormatting.AQUA);
+				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Min = true;
 			}
 			
 			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent oneMin = new StringTextComponent(getTranslations("serverstop.one_minute"));
-				oneMin.func_240699_a_(TextFormatting.DARK_AQUA);
-				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.field_240973_b_);
+				oneMin.mergeStyle(TextFormatting.DARK_AQUA);
+				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Min = true;
 			}
 			
 			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				StringTextComponent thirtySecs = new StringTextComponent(getTranslations("serverstop.thirty_seconds"));
-				thirtySecs.func_240699_a_(TextFormatting.GOLD);
-				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.field_240973_b_);
+				thirtySecs.mergeStyle(TextFormatting.GOLD);
+				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted30Sec = true;
 			}
 			
 			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				StringTextComponent tenSecs = new StringTextComponent(getTranslations("serverstop.ten_seconds"));
-				tenSecs.func_240699_a_(TextFormatting.YELLOW);
-				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				tenSecs.mergeStyle(TextFormatting.YELLOW);
+				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted10Sec = true;
 			}
 			
 			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				StringTextComponent fiveSecs = new StringTextComponent(getTranslations("serverstop.five_seconds"));
-				fiveSecs.func_240699_a_(TextFormatting.RED);
-				fiveSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveSecs.mergeStyle(TextFormatting.RED);
+				fiveSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Sec = true;
 			}
 			
 			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				StringTextComponent fourSecs = new StringTextComponent(getTranslations("serverstop.four_seconds"));
-				fourSecs.func_240699_a_(TextFormatting.DARK_RED);
-				fourSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fourSecs.mergeStyle(TextFormatting.DARK_RED);
+				fourSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted4Sec = true;
 			}
 			
 			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				StringTextComponent threeSecs = new StringTextComponent(getTranslations("serverstop.three_seconds"));
-				threeSecs.func_240699_a_(TextFormatting.DARK_RED);
-				threeSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				threeSecs.mergeStyle(TextFormatting.DARK_RED);
+				threeSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted3Sec = true;
 			}
 			
 			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				StringTextComponent twoSecs = new StringTextComponent(getTranslations("serverstop.two_seconds"));
-				twoSecs.func_240699_a_(TextFormatting.DARK_RED);
-				twoSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				twoSecs.mergeStyle(TextFormatting.DARK_RED);
+				twoSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted2Sec = true;
 			}
 			
 			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.tuesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.tuesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				StringTextComponent oneSec = new StringTextComponent(getTranslations("serverstop.one_second"));
-				oneSec.func_240699_a_(TextFormatting.DARK_RED);
-				oneSec.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.field_240973_b_);
+				oneSec.mergeStyle(TextFormatting.DARK_RED);
+				oneSec.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Sec = true;
 			}
 			
@@ -213,77 +213,77 @@ public class ServerStopEventHandler {
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent fiveMins = new StringTextComponent(getTranslations("serverstop.five_minutes"));
-				fiveMins.func_240699_a_(TextFormatting.AQUA);
-				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveMins.mergeStyle(TextFormatting.AQUA);
+				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Min = true;
 			}
 			
 			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent oneMin = new StringTextComponent(getTranslations("serverstop.one_minute"));
-				oneMin.func_240699_a_(TextFormatting.DARK_AQUA);
-				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.field_240973_b_);
+				oneMin.mergeStyle(TextFormatting.DARK_AQUA);
+				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Min = true;
 			}
 			
 			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				StringTextComponent thirtySecs = new StringTextComponent(getTranslations("serverstop.thirty_seconds"));
-				thirtySecs.func_240699_a_(TextFormatting.GOLD);
-				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.field_240973_b_);
+				thirtySecs.mergeStyle(TextFormatting.GOLD);
+				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted30Sec = true;
 			}
 			
 			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				StringTextComponent tenSecs = new StringTextComponent(getTranslations("serverstop.ten_seconds"));
-				tenSecs.func_240699_a_(TextFormatting.YELLOW);
-				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				tenSecs.mergeStyle(TextFormatting.YELLOW);
+				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted10Sec = true;
 			}
 			
 			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				StringTextComponent fiveSecs = new StringTextComponent(getTranslations("serverstop.five_seconds"));
-				fiveSecs.func_240699_a_(TextFormatting.RED);
-				fiveSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveSecs.mergeStyle(TextFormatting.RED);
+				fiveSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Sec = true;
 			}
 			
 			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				StringTextComponent fourSecs = new StringTextComponent(getTranslations("serverstop.four_seconds"));
-				fourSecs.func_240699_a_(TextFormatting.DARK_RED);
-				fourSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fourSecs.mergeStyle(TextFormatting.DARK_RED);
+				fourSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted4Sec = true;
 			}
 			
 			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				StringTextComponent threeSecs = new StringTextComponent(getTranslations("serverstop.three_seconds"));
-				threeSecs.func_240699_a_(TextFormatting.DARK_RED);
-				threeSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				threeSecs.mergeStyle(TextFormatting.DARK_RED);
+				threeSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted3Sec = true;
 			}
 			
 			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				StringTextComponent twoSecs = new StringTextComponent(getTranslations("serverstop.two_seconds"));
-				twoSecs.func_240699_a_(TextFormatting.DARK_RED);
-				twoSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				twoSecs.mergeStyle(TextFormatting.DARK_RED);
+				twoSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted2Sec = true;
 			}
 			
 			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.wednesdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.wednesdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				StringTextComponent oneSec = new StringTextComponent(getTranslations("serverstop.one_second"));
-				oneSec.func_240699_a_(TextFormatting.DARK_RED);
-				oneSec.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.field_240973_b_);
+				oneSec.mergeStyle(TextFormatting.DARK_RED);
+				oneSec.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Sec = true;
 			}
 			
@@ -299,77 +299,77 @@ public class ServerStopEventHandler {
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent fiveMins = new StringTextComponent(getTranslations("serverstop.five_minutes"));
-				fiveMins.func_240699_a_(TextFormatting.AQUA);
-				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveMins.mergeStyle(TextFormatting.AQUA);
+				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Min = true;
 			}
 			
 			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent oneMin = new StringTextComponent(getTranslations("serverstop.one_minute"));
-				oneMin.func_240699_a_(TextFormatting.DARK_AQUA);
-				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.field_240973_b_);
+				oneMin.mergeStyle(TextFormatting.DARK_AQUA);
+				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Min = true;
 			}
 			
 			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				StringTextComponent thirtySecs = new StringTextComponent(getTranslations("serverstop.thirty_seconds"));
-				thirtySecs.func_240699_a_(TextFormatting.GOLD);
-				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.field_240973_b_);
+				thirtySecs.mergeStyle(TextFormatting.GOLD);
+				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted30Sec = true;
 			}
 			
 			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				StringTextComponent tenSecs = new StringTextComponent(getTranslations("serverstop.ten_seconds"));
-				tenSecs.func_240699_a_(TextFormatting.YELLOW);
-				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				tenSecs.mergeStyle(TextFormatting.YELLOW);
+				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted10Sec = true;
 			}
 			
 			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				StringTextComponent fiveSecs = new StringTextComponent(getTranslations("serverstop.five_seconds"));
-				fiveSecs.func_240699_a_(TextFormatting.RED);
-				fiveSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveSecs.mergeStyle(TextFormatting.RED);
+				fiveSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Sec = true;
 			}
 			
 			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				StringTextComponent fourSecs = new StringTextComponent(getTranslations("serverstop.four_seconds"));
-				fourSecs.func_240699_a_(TextFormatting.DARK_RED);
-				fourSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fourSecs.mergeStyle(TextFormatting.DARK_RED);
+				fourSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted4Sec = true;
 			}
 			
 			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				StringTextComponent threeSecs = new StringTextComponent(getTranslations("serverstop.three_seconds"));
-				threeSecs.func_240699_a_(TextFormatting.DARK_RED);
-				threeSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				threeSecs.mergeStyle(TextFormatting.DARK_RED);
+				threeSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted3Sec = true;
 			}
 			
 			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				StringTextComponent twoSecs = new StringTextComponent(getTranslations("serverstop.two_seconds"));
-				twoSecs.func_240699_a_(TextFormatting.DARK_RED);
-				twoSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				twoSecs.mergeStyle(TextFormatting.DARK_RED);
+				twoSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted2Sec = true;
 			}
 			
 			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.thursdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.thursdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				StringTextComponent oneSec = new StringTextComponent(getTranslations("serverstop.one_second"));
-				oneSec.func_240699_a_(TextFormatting.DARK_RED);
-				oneSec.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.field_240973_b_);
+				oneSec.mergeStyle(TextFormatting.DARK_RED);
+				oneSec.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Sec = true;
 			}
 			
@@ -385,77 +385,77 @@ public class ServerStopEventHandler {
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent fiveMins = new StringTextComponent(getTranslations("serverstop.five_minutes"));
-				fiveMins.func_240699_a_(TextFormatting.AQUA);
-				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveMins.mergeStyle(TextFormatting.AQUA);
+				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Min = true;
 			}
 			
 			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent oneMin = new StringTextComponent(getTranslations("serverstop.one_minute"));
-				oneMin.func_240699_a_(TextFormatting.DARK_AQUA);
-				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.field_240973_b_);
+				oneMin.mergeStyle(TextFormatting.DARK_AQUA);
+				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Min = true;
 			}
 			
 			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				StringTextComponent thirtySecs = new StringTextComponent(getTranslations("serverstop.thirty_seconds"));
-				thirtySecs.func_240699_a_(TextFormatting.GOLD);
-				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.field_240973_b_);
+				thirtySecs.mergeStyle(TextFormatting.GOLD);
+				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted30Sec = true;
 			}
 			
 			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				StringTextComponent tenSecs = new StringTextComponent(getTranslations("serverstop.ten_seconds"));
-				tenSecs.func_240699_a_(TextFormatting.YELLOW);
-				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				tenSecs.mergeStyle(TextFormatting.YELLOW);
+				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted10Sec = true;
 			}
 			
 			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				StringTextComponent fiveSecs = new StringTextComponent(getTranslations("serverstop.five_seconds"));
-				fiveSecs.func_240699_a_(TextFormatting.RED);
-				fiveSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveSecs.mergeStyle(TextFormatting.RED);
+				fiveSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Sec = true;
 			}
 			
 			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				StringTextComponent fourSecs = new StringTextComponent(getTranslations("serverstop.four_seconds"));
-				fourSecs.func_240699_a_(TextFormatting.DARK_RED);
-				fourSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fourSecs.mergeStyle(TextFormatting.DARK_RED);
+				fourSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted4Sec = true;
 			}
 			
 			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				StringTextComponent threeSecs = new StringTextComponent(getTranslations("serverstop.three_seconds"));
-				threeSecs.func_240699_a_(TextFormatting.DARK_RED);
-				threeSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				threeSecs.mergeStyle(TextFormatting.DARK_RED);
+				threeSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted3Sec = true;
 			}
 			
 			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				StringTextComponent twoSecs = new StringTextComponent(getTranslations("serverstop.two_seconds"));
-				twoSecs.func_240699_a_(TextFormatting.DARK_RED);
-				twoSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				twoSecs.mergeStyle(TextFormatting.DARK_RED);
+				twoSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted2Sec = true;
 			}
 			
 			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.fridayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.fridayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				StringTextComponent oneSec = new StringTextComponent(getTranslations("serverstop.one_second"));
-				oneSec.func_240699_a_(TextFormatting.DARK_RED);
-				oneSec.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.field_240973_b_);
+				oneSec.mergeStyle(TextFormatting.DARK_RED);
+				oneSec.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Sec = true;
 			}
 			
@@ -471,77 +471,77 @@ public class ServerStopEventHandler {
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent fiveMins = new StringTextComponent(getTranslations("serverstop.five_minutes"));
-				fiveMins.func_240699_a_(TextFormatting.AQUA);
-				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveMins.mergeStyle(TextFormatting.AQUA);
+				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Min = true;
 			}
 			
 			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent oneMin = new StringTextComponent(getTranslations("serverstop.one_minute"));
-				oneMin.func_240699_a_(TextFormatting.DARK_AQUA);
-				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.field_240973_b_);
+				oneMin.mergeStyle(TextFormatting.DARK_AQUA);
+				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Min = true;
 			}
 			
 			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				StringTextComponent thirtySecs = new StringTextComponent(getTranslations("serverstop.thirty_seconds"));
-				thirtySecs.func_240699_a_(TextFormatting.GOLD);
-				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.field_240973_b_);
+				thirtySecs.mergeStyle(TextFormatting.GOLD);
+				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted30Sec = true;
 			}
 			
 			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				StringTextComponent tenSecs = new StringTextComponent(getTranslations("serverstop.ten_seconds"));
-				tenSecs.func_240699_a_(TextFormatting.YELLOW);
-				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				tenSecs.mergeStyle(TextFormatting.YELLOW);
+				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted10Sec = true;
 			}
 			
 			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				StringTextComponent fiveSecs = new StringTextComponent(getTranslations("serverstop.five_seconds"));
-				fiveSecs.func_240699_a_(TextFormatting.RED);
-				fiveSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveSecs.mergeStyle(TextFormatting.RED);
+				fiveSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Sec = true;
 			}
 			
 			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				StringTextComponent fourSecs = new StringTextComponent(getTranslations("serverstop.four_seconds"));
-				fourSecs.func_240699_a_(TextFormatting.DARK_RED);
-				fourSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fourSecs.mergeStyle(TextFormatting.DARK_RED);
+				fourSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted4Sec = true;
 			}
 			
 			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				StringTextComponent threeSecs = new StringTextComponent(getTranslations("serverstop.three_seconds"));
-				threeSecs.func_240699_a_(TextFormatting.DARK_RED);
-				threeSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				threeSecs.mergeStyle(TextFormatting.DARK_RED);
+				threeSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted3Sec = true;
 			}
 			
 			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				StringTextComponent twoSecs = new StringTextComponent(getTranslations("serverstop.two_seconds"));
-				twoSecs.func_240699_a_(TextFormatting.DARK_RED);
-				twoSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				twoSecs.mergeStyle(TextFormatting.DARK_RED);
+				twoSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted2Sec = true;
 			}
 			
 			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.saturdayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.saturdayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				StringTextComponent oneSec = new StringTextComponent(getTranslations("serverstop.one_second"));
-				oneSec.func_240699_a_(TextFormatting.DARK_RED);
-				oneSec.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.field_240973_b_);
+				oneSec.mergeStyle(TextFormatting.DARK_RED);
+				oneSec.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Sec = true;
 			}
 			
@@ -557,77 +557,77 @@ public class ServerStopEventHandler {
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent fiveMins = new StringTextComponent(getTranslations("serverstop.five_minutes"));
-				fiveMins.func_240699_a_(TextFormatting.AQUA);
-				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveMins.mergeStyle(TextFormatting.AQUA);
+				player.func_232641_a_(fiveMins, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Min = true;
 			}
 			
 			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 				
 				StringTextComponent oneMin = new StringTextComponent(getTranslations("serverstop.one_minute"));
-				oneMin.func_240699_a_(TextFormatting.DARK_AQUA);
-				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.field_240973_b_);
+				oneMin.mergeStyle(TextFormatting.DARK_AQUA);
+				player.func_232641_a_(oneMin, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Min = true;
 			}
 			
 			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 				
 				StringTextComponent thirtySecs = new StringTextComponent(getTranslations("serverstop.thirty_seconds"));
-				thirtySecs.func_240699_a_(TextFormatting.GOLD);
-				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.field_240973_b_);
+				thirtySecs.mergeStyle(TextFormatting.GOLD);
+				player.func_232641_a_(thirtySecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted30Sec = true;
 			}
 			
 			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 				
 				StringTextComponent tenSecs = new StringTextComponent(getTranslations("serverstop.ten_seconds"));
-				tenSecs.func_240699_a_(TextFormatting.YELLOW);
-				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				tenSecs.mergeStyle(TextFormatting.YELLOW);
+				player.func_232641_a_(tenSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted10Sec = true;
 			}
 			
 			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 				
 				StringTextComponent fiveSecs = new StringTextComponent(getTranslations("serverstop.five_seconds"));
-				fiveSecs.func_240699_a_(TextFormatting.RED);
-				fiveSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fiveSecs.mergeStyle(TextFormatting.RED);
+				fiveSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fiveSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted5Sec = true;
 			}
 			
 			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 				
 				StringTextComponent fourSecs = new StringTextComponent(getTranslations("serverstop.four_seconds"));
-				fourSecs.func_240699_a_(TextFormatting.DARK_RED);
-				fourSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				fourSecs.mergeStyle(TextFormatting.DARK_RED);
+				fourSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(fourSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted4Sec = true;
 			}
 			
 			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 				
 				StringTextComponent threeSecs = new StringTextComponent(getTranslations("serverstop.three_seconds"));
-				threeSecs.func_240699_a_(TextFormatting.DARK_RED);
-				threeSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				threeSecs.mergeStyle(TextFormatting.DARK_RED);
+				threeSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(threeSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted3Sec = true;
 			}
 			
 			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 				
 				StringTextComponent twoSecs = new StringTextComponent(getTranslations("serverstop.two_seconds"));
-				twoSecs.func_240699_a_(TextFormatting.DARK_RED);
-				twoSecs.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.field_240973_b_);
+				twoSecs.mergeStyle(TextFormatting.DARK_RED);
+				twoSecs.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(twoSecs, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted2Sec = true;
 			}
 			
 			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == ServerStopConfig.sundayHour.get() && Calendar.getInstance().get(Calendar.MINUTE) == ServerStopConfig.sundayMinute.get() - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 				
 				StringTextComponent oneSec = new StringTextComponent(getTranslations("serverstop.one_second"));
-				oneSec.func_240699_a_(TextFormatting.DARK_RED);
-				oneSec.func_240699_a_(TextFormatting.BOLD);
-				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.field_240973_b_);
+				oneSec.mergeStyle(TextFormatting.DARK_RED);
+				oneSec.mergeStyle(TextFormatting.BOLD);
+				player.func_232641_a_(oneSec, ChatType.SYSTEM, Util.DUMMY_UUID);
 				hasPosted1Sec = true;
 			}
 			
@@ -645,8 +645,8 @@ public class ServerStopEventHandler {
 		ServerPlayerEntity player = (ServerPlayerEntity) event.getPlayer();
 		
 		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck.get() == false) {
-        		player.func_241151_a_(ServerStopUpdateHandler.updateInfo, ChatType.SYSTEM, Util.field_240973_b_);
-        		player.func_241151_a_(ServerStopUpdateHandler.updateInfo.func_240700_a_((style) -> {return style.func_240716_a_(new HoverEvent(HoverEvent.Action.field_230550_a_, new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2")))).func_240715_a_(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));}), ChatType.SYSTEM, Util.field_240973_b_);
+        		player.func_241151_a_(ServerStopUpdateHandler.updateInfo, ChatType.SYSTEM, Util.DUMMY_UUID);
+        		player.func_241151_a_(ServerStopUpdateHandler.updateInfo.modifyStyle((style) -> {return style.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2")))).setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));}), ChatType.SYSTEM, Util.DUMMY_UUID);
         }
     }
 	

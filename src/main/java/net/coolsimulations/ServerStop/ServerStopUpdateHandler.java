@@ -34,13 +34,13 @@ public class ServerStopUpdateHandler {
 				isOld = true;
 				
 				StringTextComponent ss = new StringTextComponent(Reference.MOD_NAME);
-				ss.func_240699_a_(TextFormatting.BLUE);
+				ss.mergeStyle(TextFormatting.BLUE);
 				
 				StringTextComponent MCVersion = new StringTextComponent(MCPVersion.getMCVersion());
-				MCVersion.func_240699_a_(TextFormatting.BLUE);
+				MCVersion.mergeStyle(TextFormatting.BLUE);
 				
 				updateInfo = new TranslationTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display3"), new Object[] {ss, MCVersion});
-				updateInfo.func_240699_a_(TextFormatting.YELLOW);
+				updateInfo.mergeStyle(TextFormatting.YELLOW);
 				
 				//updateInfo.getStyle().func_240716_a_(new HoverEvent(HoverEvent.Action.field_230550_a_, new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
 				//updateInfo.getStyle().func_240715_a_(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
@@ -52,13 +52,13 @@ public class ServerStopUpdateHandler {
 				isOld = true;
 				
 				StringTextComponent ss = new StringTextComponent(Reference.MOD_NAME);
-				ss.func_240699_a_(TextFormatting.BLUE);
+				ss.mergeStyle(TextFormatting.BLUE);
 				
 				StringTextComponent version = new StringTextComponent(latestVersion);
-				version.func_240699_a_(TextFormatting.BLUE);
+				version.mergeStyle(TextFormatting.BLUE);
 				
 				updateInfo = new TranslationTextComponent(ServerStopEventHandler.getTranslations("sp.update.display1"), new Object[] {ss, version});
-				updateInfo.func_240699_a_(TextFormatting.YELLOW);
+				updateInfo.mergeStyle(TextFormatting.YELLOW);
 				
 				//updateInfo.getStyle().func_240716_a_(new HoverEvent(HoverEvent.Action.field_230550_a_, new StringTextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
 				//updateInfo.getStyle().func_240715_a_(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
