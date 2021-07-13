@@ -3,7 +3,7 @@
     "package": "net.coolsimulations.ServerStop.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "PlayerManagerMixin"
+        "PlayerListMixin"
     ],
     "injectors": {
         "defaultRequire": 1
