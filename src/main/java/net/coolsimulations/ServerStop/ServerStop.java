@@ -1,43 +1,33 @@
 package net.coolsimulations.ServerStop;
 
-import net.coolsimulations.ServerStop.proxy.ClientProxy;
-import net.coolsimulations.ServerStop.proxy.CommonProxy;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
-import net.minecraftforge.fml.loading.FMLEnvironment;
+import java.io.File;
 
-@Mod(value = Reference.MOD_ID)
-@Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ServerStop {
-	
-	 public static CommonProxy proxy = (CommonProxy) DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
-	
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.loader.api.FabricLoader;
+
+public class ServerStop implements ModInitializer {
+
 	private static ServerStop instance;
 	public static ServerStop getInstance()
-    {
-        return instance;
-    }
-	
-	public ServerStop() {
-		
-		ServerStopConfig.register(ModLoadingContext.get());
+	{
+		return instance;
+	}
+
+	@Override
+	public void onInitialize() {
+
+		ServerStopConfig.init(new File(FabricLoader.getInstance().getConfigDir().toFile(), Reference.MOD_ID + ".json"));
 		ServerStopUpdateHandler.init();
-		 
-		if(FMLEnvironment.dist == Dist.DEDICATED_SERVER) {
-			CommonProxy.init();
+
+		if(FabricLoader.getInstance().getEnvironmentType() == EnvType.SERVER) {
+			ServerStopEventHandler.onServerTickEvent();
 		}
 		
-	}
-	
-	@SubscribeEvent
-	public static void serverLoad(FMLServerStartingEvent event) {
-		
-		CommandCancel.register(event.getCommandDispatcher());
-		
+		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+			CommandCancel.register(dispatcher);
+		});
+
 	}
 }
