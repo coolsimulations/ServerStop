@@ -80,7 +80,7 @@ public class ServerStopUpdateHandler {
 					updateVersionInfo.getStyle().setColor(TextFormatting.DARK_AQUA);
 					updateVersionInfo.getStyle().setBold(true);
 
-					updateVersionInfo.getStyle().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentTranslation("serverstop.update.display2")));
+					updateVersionInfo.getStyle().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
 					updateVersionInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
 
 				}
