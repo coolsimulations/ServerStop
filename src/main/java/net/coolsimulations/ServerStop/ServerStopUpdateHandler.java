@@ -30,7 +30,7 @@ public class ServerStopUpdateHandler {
 		}
 
 		try {
-			URL url = new URL("https://coolsimulations.net/mcmods/serverstop/updateinfo112.txt");
+			URL url = new URL("https://coolsimulations.net/mcmods/serverstop/updateinfo113.txt");
 			Scanner s = new Scanner(url.openStream());
 			latestVersionInfo = s.nextLine();
 			s.close();
