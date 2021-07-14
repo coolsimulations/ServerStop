@@ -54,7 +54,7 @@ public class ServerStopUpdateHandler {
 				updateInfo.getStyle().setColor(TextFormatting.YELLOW);
 
 				updateInfo.getStyle().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-				updateInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.curseforge.com/minecraft/mc-mods/serverstop"));
+				updateInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
 
 			}
 
@@ -72,7 +72,7 @@ public class ServerStopUpdateHandler {
 				updateInfo.getStyle().setColor(TextFormatting.YELLOW);
 
 				updateInfo.getStyle().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-				updateInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.curseforge.com/minecraft/mc-mods/serverstop"));
+				updateInfo.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
 
 				if(latestVersionInfo != null) {
 
