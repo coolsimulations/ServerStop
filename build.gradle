@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 
 def mcVersion = "1.15.2"
-def ssVersion = "0.1.0"
+def ssVersion = "0.1.1"
 version = "${mcVersion}-${ssVersion}"
 group = "net.coolsimulations.ServerStop" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ServerStop"
