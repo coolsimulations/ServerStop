@@ -26,7 +26,6 @@ public class ServerStop {
 	public ServerStop() {
 		
 		ServerStopConfig.register(ModLoadingContext.get());
-		ServerStopUpdateHandler.init();
 		 
 		if(FMLEnvironment.dist == Dist.DEDICATED_SERVER) {
 			CommonProxy.init();

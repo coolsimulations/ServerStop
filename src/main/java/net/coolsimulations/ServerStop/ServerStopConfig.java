@@ -1,11 +1,13 @@
 package net.coolsimulations.ServerStop;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.tuple.Pair;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
-import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 
@@ -15,32 +17,34 @@ public class ServerStopConfig {
 	public static ConfigValue<String> serverLang;
 	
 	public static BooleanValue enableMonday;
-	public static IntValue mondayHour;
-	public static IntValue mondayMinute;
+	public static ConfigValue<List<Integer>> mondayHour;
+	public static ConfigValue<List<Integer>> mondayMinute;
 	
 	public static BooleanValue enableTuesday;
-	public static IntValue tuesdayHour;
-	public static IntValue tuesdayMinute;
+	public static ConfigValue<List<Integer>> tuesdayHour;
+	public static ConfigValue<List<Integer>> tuesdayMinute;
 	
 	public static BooleanValue enableWednesday;
-	public static IntValue wednesdayHour;
-	public static IntValue wednesdayMinute;
+	public static ConfigValue<List<Integer>> wednesdayHour;
+	public static ConfigValue<List<Integer>> wednesdayMinute;
 	
 	public static BooleanValue enableThursday;
-	public static IntValue thursdayHour;
-	public static IntValue thursdayMinute;
+	public static ConfigValue<List<Integer>> thursdayHour;
+	public static ConfigValue<List<Integer>> thursdayMinute;
 	
 	public static BooleanValue enableFriday;
-	public static IntValue fridayHour;
-	public static IntValue fridayMinute;
+	public static ConfigValue<List<Integer>> fridayHour;
+	public static ConfigValue<List<Integer>> fridayMinute;
 	
 	public static BooleanValue enableSaturday;
-	public static IntValue saturdayHour;
-	public static IntValue saturdayMinute;
+	public static ConfigValue<List<Integer>> saturdayHour;
+	public static ConfigValue<List<Integer>> saturdayMinute;
 	
 	public static BooleanValue enableSunday;
-	public static IntValue sundayHour;
-	public static IntValue sundayMinute;
+	public static ConfigValue<List<Integer>> sundayHour;
+	public static ConfigValue<List<Integer>> sundayMinute;
+	
+	public static BooleanValue stopWhenPlayersOnline;
 	
     public static BooleanValue disableUpdateCheck;
     
@@ -63,6 +67,10 @@ public class ServerStopConfig {
 					.comment("Disable ServerStop Update Checker Message")
 					.define("disableUpdateCheck", false);
 			
+			stopWhenPlayersOnline = builder
+					.comment("Shutdown the Server Even if Players are Online")
+					.define("stopWhenPlayersOnline", true);
+			
 			builder.pop();
 			
 			builder.comment("Monday Settings")
@@ -74,11 +82,11 @@ public class ServerStopConfig {
 			
 			mondayHour = builder
 					.comment("On Monday this is the hour the server will auto-shutdown. It uses 24-hour time.")
-					.defineInRange("mondayHour", 12, 0, 23);
+					.define("mondayHour", new ArrayList<Integer>());
 			
 			mondayMinute = builder
 					.comment("On Monday this is the minute the server will auto-shutdown.")
-					.defineInRange("mondayMinute", 0, 0, 59);
+					.define("mondayMinute", new ArrayList<Integer>());
 			
 			builder.pop();
 			
@@ -91,11 +99,11 @@ public class ServerStopConfig {
 			
 			tuesdayHour = builder
 					.comment("On Tuesday this is the hour the server will auto-shutdown. It uses 24-hour time.")
-					.defineInRange("tuesdayHour", 12, 0, 23);
+					.define("tuesdayHour", new ArrayList<Integer>());
 			
 			tuesdayMinute = builder
 					.comment("On Tuesday this is the minute the server will auto-shutdown.")
-					.defineInRange("tuesdayMinute", 0, 0, 59);
+					.define("tuesdayMinute", new ArrayList<Integer>());
 			
 			builder.pop();
 			
@@ -108,11 +116,11 @@ public class ServerStopConfig {
 			
 			wednesdayHour = builder
 					.comment("On Wednesday this is the hour the server will auto-shutdown. It uses 24-hour time.")
-					.defineInRange("wednesdayHour", 12, 0, 23);
+					.define("wednesdayHour", new ArrayList<Integer>());
 			
 			wednesdayMinute = builder
 					.comment("On Wednesday this is the minute the server will auto-shutdown.")
-					.defineInRange("wednesdayMinute", 0, 0, 59);
+					.define("wednesdayMinute", new ArrayList<Integer>());
 			
 			builder.pop();
 			
@@ -125,11 +133,11 @@ public class ServerStopConfig {
 			
 			thursdayHour = builder
 					.comment("On Thursday this is the hour the server will auto-shutdown. It uses 24-hour time.")
-					.defineInRange("thursdayHour", 12, 0, 23);
+					.define("thursdayHour", new ArrayList<Integer>());
 			
 			thursdayMinute = builder
 					.comment("On Thursday this is the minute the server will auto-shutdown.")
-					.defineInRange("thursdayMinute", 0, 0, 59);
+					.define("thursdayMinute", new ArrayList<Integer>());
 			
 			builder.pop();
 			
@@ -142,11 +150,11 @@ public class ServerStopConfig {
 			
 			fridayHour = builder
 					.comment("On Friday this is the hour the server will auto-shutdown. It uses 24-hour time.")
-					.defineInRange("fridayHour", 12, 0, 23);
+					.define("fridayHour", new ArrayList<Integer>());
 			
 			fridayMinute = builder
 					.comment("On Friday this is the minute the server will auto-shutdown.")
-					.defineInRange("fridayMinute", 0, 0, 59);
+					.define("fridayMinute", new ArrayList<Integer>());
 			
 			builder.pop();
 			
@@ -159,11 +167,11 @@ public class ServerStopConfig {
 			
 			saturdayHour = builder
 					.comment("On Saturday this is the hour the server will auto-shutdown. It uses 24-hour time.")
-					.defineInRange("saturdayHour", 12, 0, 23);
+					.define("saturdayHour", new ArrayList<Integer>());
 			
 			saturdayMinute = builder
 					.comment("On Saturday this is the minute the server will auto-shutdown.")
-					.defineInRange("saturdayMinute", 0, 0, 59);
+					.define("saturdayMinute", new ArrayList<Integer>());
 			
 			builder.pop();
 			
@@ -176,11 +184,11 @@ public class ServerStopConfig {
 			
 			sundayHour = builder
 					.comment("On Sunday this is the hour the server will auto-shutdown. It uses 24-hour time.")
-					.defineInRange("sundayHour", 12, 0, 23);
+					.define("sundayHour", new ArrayList<Integer>());
 			
 			sundayMinute = builder
 					.comment("On Sunday this is the minute the server will auto-shutdown.")
-					.defineInRange("sundayMinute", 0, 0, 59);
+					.define("sundayMinute", new ArrayList<Integer>());
 			
 			builder.pop();
 		}
