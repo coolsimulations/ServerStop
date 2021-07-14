@@ -6,80 +6,91 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 
 public class ServerStopConfig {
-	
+
 	public static String serverLang;
-	
+
 	public static boolean enableMonday;
-	public static int mondayHour;
-	public static int mondayMinute;
-	
+	public static int[] mondayHour;
+	public static int[] mondayMinute;
+
 	public static boolean enableTuesday;
-	public static int tuesdayHour;
-	public static int tuesdayMinute;
-	
+	public static int[] tuesdayHour;
+	public static int[] tuesdayMinute;
+
 	public static boolean enableWednesday;
-	public static int wednesdayHour;
-	public static int wednesdayMinute;
-	
+	public static int[] wednesdayHour;
+	public static int[] wednesdayMinute;
+
 	public static boolean enableThursday;
-	public static int thursdayHour;
-	public static int thursdayMinute;
-	
+	public static int[] thursdayHour;
+	public static int[] thursdayMinute;
+
 	public static boolean enableFriday;
-	public static int fridayHour;
-	public static int fridayMinute;
-	
+	public static int[] fridayHour;
+	public static int[] fridayMinute;
+
 	public static boolean enableSaturday;
-	public static int saturdayHour;
-	public static int saturdayMinute;
-	
+	public static int[] saturdayHour;
+	public static int[] saturdayMinute;
+
 	public static boolean enableSunday;
-	public static int sundayHour;
-	public static int sundayMinute;
-	
-    public static boolean disableUpdateCheck;
-    
-    static File file;
+	public static int[] sundayHour;
+	public static int[] sundayMinute;
+
+	public static boolean stopWhenPlayersOnline;
+
+	public static boolean disableUpdateCheck;
+
+	static File file;
 	static JsonObject object;
-	
+
 	public static void init(File fileSrc) {
 
+		JsonArray arrayHour = new JsonArray();
+		JsonArray arrayMinute = new JsonArray();
+
+		arrayHour.add(12);
+		arrayMinute.add(0);
+
 		serverLang = "en_us";
-		
+
+		stopWhenPlayersOnline = true;
+
 		disableUpdateCheck = false;
-		
+
 		enableMonday = true;
-		mondayHour = 12;
-		mondayMinute = 0;
-		
+		mondayHour = convertArrayToInteger(arrayHour);
+		mondayMinute = convertArrayToInteger(arrayMinute);
+
 		enableTuesday = true;
-		tuesdayHour = 12;
-		tuesdayMinute = 0;
-		
+		tuesdayHour = convertArrayToInteger(arrayHour);
+		tuesdayMinute = convertArrayToInteger(arrayMinute);
+
 		enableWednesday = true;
-		wednesdayHour = 12;
-		wednesdayMinute = 0;
-		
+		wednesdayHour = convertArrayToInteger(arrayHour);
+		wednesdayMinute = convertArrayToInteger(arrayMinute);
+
 		enableThursday = true;
-		thursdayHour = 12;
-		thursdayMinute = 0;
-		
+		thursdayHour = convertArrayToInteger(arrayHour);
+		thursdayMinute = convertArrayToInteger(arrayMinute);
+
 		enableFriday = true;
-		fridayHour = 12;
-		fridayMinute = 0;
-		
+		fridayHour = convertArrayToInteger(arrayHour);
+		fridayMinute = convertArrayToInteger(arrayMinute);
+
 		enableSaturday = true;
-		saturdayHour = 12;
-		saturdayMinute = 0;
-		
+		saturdayHour = convertArrayToInteger(arrayHour);
+		saturdayMinute = convertArrayToInteger(arrayMinute);
+
 		enableSunday = true;
-		sundayHour = 12;
-		sundayMinute = 0;
+		sundayHour = convertArrayToInteger(arrayHour);
+		sundayMinute = convertArrayToInteger(arrayMinute);
 
 		JsonObject jsonObject = setJsonObject(new JsonObject());
 
@@ -88,12 +99,12 @@ public class ServerStopConfig {
 		} else {
 			load(fileSrc);
 		}
-		
+
 		file = fileSrc;
 		object = jsonObject;
 
 	}
-	
+
 	public static void save(File fileSrc, JsonObject object) {
 		try {
 			FileWriter file = new FileWriter(fileSrc);
@@ -104,175 +115,117 @@ public class ServerStopConfig {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void load(File fileSrc) {
 		JsonParser parser = new JsonParser();
 		try {
 			Object obj = parser.parse(new FileReader(fileSrc));
 			JsonObject jsonObjectRead = (JsonObject) obj;
-			
+
 			serverLang = jsonObjectRead.get("serverLang").getAsString();
-			
+
+			stopWhenPlayersOnline = jsonObjectRead.get("stopWhenPlayersOnline").getAsBoolean();
+
 			disableUpdateCheck = jsonObjectRead.get("disableUpdateCheck").getAsBoolean();
-			
+
 			enableMonday = jsonObjectRead.get("enableMonday").getAsBoolean();
-			mondayHour = jsonObjectRead.get("mondayHour").getAsInt();
-			mondayMinute = jsonObjectRead.get("mondayMinute").getAsInt();
-			
+			mondayHour = convertArrayToInteger(jsonObjectRead.get("mondayHour").getAsJsonArray());
+			mondayMinute = convertArrayToInteger(jsonObjectRead.get("mondayMinute").getAsJsonArray());
+
 			enableTuesday = jsonObjectRead.get("enableTuesday").getAsBoolean();
-			tuesdayHour = jsonObjectRead.get("tuesdayHour").getAsInt();
-			tuesdayMinute = jsonObjectRead.get("tuesdayMinute").getAsInt();
-			
+			tuesdayHour = convertArrayToInteger(jsonObjectRead.get("tuesdayHour").getAsJsonArray());
+			tuesdayMinute = convertArrayToInteger(jsonObjectRead.get("tuesdayMinute").getAsJsonArray());
+
 			enableWednesday = jsonObjectRead.get("enableWednesday").getAsBoolean();
-			wednesdayHour = jsonObjectRead.get("wednesdayHour").getAsInt();
-			wednesdayMinute = jsonObjectRead.get("wednesdayMinute").getAsInt();
-			
+			wednesdayHour = convertArrayToInteger(jsonObjectRead.get("wednesdayHour").getAsJsonArray());
+			wednesdayMinute = convertArrayToInteger(jsonObjectRead.get("wednesdayMinute").getAsJsonArray());
+
 			enableThursday = jsonObjectRead.get("enableThursday").getAsBoolean();
-			thursdayHour = jsonObjectRead.get("thursdayHour").getAsInt();
-			thursdayMinute = jsonObjectRead.get("thursdayMinute").getAsInt();
-			
+			thursdayHour = convertArrayToInteger(jsonObjectRead.get("thursdayHour").getAsJsonArray());
+			thursdayMinute = convertArrayToInteger(jsonObjectRead.get("thursdayMinute").getAsJsonArray());
+
 			enableFriday = jsonObjectRead.get("enableFriday").getAsBoolean();
-			fridayHour = jsonObjectRead.get("fridayHour").getAsInt();
-			fridayMinute = jsonObjectRead.get("fridayMinute").getAsInt();
-			
+			fridayHour = convertArrayToInteger(jsonObjectRead.get("fridayHour").getAsJsonArray());
+			fridayMinute = convertArrayToInteger(jsonObjectRead.get("fridayMinute").getAsJsonArray());
+
 			enableSaturday = jsonObjectRead.get("enableSaturday").getAsBoolean();
-			saturdayHour = jsonObjectRead.get("saturdayHour").getAsInt();
-			saturdayMinute = jsonObjectRead.get("saturdayMinute").getAsInt();
-			
+			saturdayHour = convertArrayToInteger(jsonObjectRead.get("saturdayHour").getAsJsonArray());
+			saturdayMinute = convertArrayToInteger(jsonObjectRead.get("saturdayMinute").getAsJsonArray());
+
 			enableSunday = jsonObjectRead.get("enableSunday").getAsBoolean();
-			sundayHour = jsonObjectRead.get("sundayHour").getAsInt();
-			sundayMinute = jsonObjectRead.get("sundayMinute").getAsInt();
-			
-			if(mondayHour < 0) {
-				mondayHour = 0;
-			} else if(mondayHour > 23) {
-				mondayHour = 23;
-			}
-			
-			if(mondayMinute < 0) {
-				mondayMinute = 0;
-			} else if(mondayMinute > 59) {
-				mondayMinute = 59;
-			}
-			
-			if(tuesdayHour < 0) {
-				tuesdayHour = 0;
-			} else if(tuesdayHour > 23) {
-				tuesdayHour = 23;
-			}
-			
-			if(tuesdayMinute < 0) {
-				tuesdayMinute = 0;
-			} else if(tuesdayMinute > 59) {
-				tuesdayMinute = 59;
-			}
-			
-			if(wednesdayHour < 0) {
-				wednesdayHour = 0;
-			} else if(wednesdayHour > 23) {
-				wednesdayHour = 23;
-			}
-			
-			if(wednesdayMinute < 0) {
-				wednesdayMinute = 0;
-			} else if(wednesdayMinute > 59) {
-				wednesdayMinute = 59;
-			}
-			
-			if(thursdayHour < 0) {
-				thursdayHour = 0;
-			} else if(thursdayHour > 23) {
-				thursdayHour = 23;
-			}
-			
-			if(thursdayMinute < 0) {
-				thursdayMinute = 0;
-			} else if(thursdayMinute > 59) {
-				thursdayMinute = 59;
-			}
-			
-			if(fridayHour < 0) {
-				fridayHour = 0;
-			} else if(fridayHour > 23) {
-				fridayHour = 23;
-			}
-			
-			if(fridayMinute < 0) {
-				fridayMinute = 0;
-			} else if(fridayMinute > 59) {
-				fridayMinute = 59;
-			}
-			
-			if(saturdayHour < 0) {
-				saturdayHour = 0;
-			} else if(saturdayHour > 23) {
-				saturdayHour = 23;
-			}
-			
-			if(saturdayMinute < 0) {
-				saturdayMinute = 0;
-			} else if(saturdayMinute > 59) {
-				saturdayMinute = 59;
-			}
-			
-			if(sundayHour < 0) {
-				sundayHour = 0;
-			} else if(sundayHour > 23) {
-				sundayHour = 23;
-			}
-			
-			if(sundayMinute < 0) {
-				sundayMinute = 0;
-			} else if(sundayMinute > 59) {
-				sundayMinute = 59;
-			}
-			
+			sundayHour = convertArrayToInteger(jsonObjectRead.get("sundayHour").getAsJsonArray());
+			sundayMinute = convertArrayToInteger(jsonObjectRead.get("sundayMinute").getAsJsonArray());
+
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
 	}
-	
+
 	public static JsonObject setJsonObject(JsonObject jsonObject) {
-		
+
 		jsonObject.addProperty("serverLang", serverLang);
 		
+		jsonObject.addProperty("stopWhenPlayersOnline", stopWhenPlayersOnline);
+
 		jsonObject.addProperty("disableUpdateCheck", disableUpdateCheck);
-		
+
 		jsonObject.addProperty("enableMonday", enableMonday);
-		jsonObject.addProperty("mondayHour", mondayHour);
-		jsonObject.addProperty("mondayMinute", mondayMinute);
-		
+		jsonObject.add("mondayHour", convertIntegerToArray(mondayHour));
+		jsonObject.add("mondayMinute", convertIntegerToArray(mondayMinute));
+
 		jsonObject.addProperty("enableTuesday", enableTuesday);
-		jsonObject.addProperty("tuesdayHour", tuesdayHour);
-		jsonObject.addProperty("tuesdayMinute", tuesdayMinute);
-		
+		jsonObject.add("tuesdayHour", convertIntegerToArray(tuesdayHour));
+		jsonObject.add("tuesdayMinute", convertIntegerToArray(tuesdayMinute));
+
 		jsonObject.addProperty("enableWednesday", enableWednesday);
-		jsonObject.addProperty("wednesdayHour", wednesdayHour);
-		jsonObject.addProperty("wednesdayMinute", wednesdayMinute);
-		
+		jsonObject.add("wednesdayHour", convertIntegerToArray(wednesdayHour));
+		jsonObject.add("wednesdayMinute", convertIntegerToArray(wednesdayMinute));
+
 		jsonObject.addProperty("enableThursday", enableThursday);
-		jsonObject.addProperty("thursdayHour", thursdayHour);
-		jsonObject.addProperty("thursdayMinute", thursdayMinute);
-		
+		jsonObject.add("thursdayHour", convertIntegerToArray(thursdayHour));
+		jsonObject.add("thursdayMinute", convertIntegerToArray(thursdayMinute));
+
 		jsonObject.addProperty("enableFriday", enableFriday);
-		jsonObject.addProperty("fridayHour", fridayHour);
-		jsonObject.addProperty("fridayMinute", fridayMinute);
-		
+		jsonObject.add("fridayHour", convertIntegerToArray(fridayHour));
+		jsonObject.add("fridayMinute", convertIntegerToArray(fridayMinute));
+
 		jsonObject.addProperty("enableSaturday", enableSaturday);
-		jsonObject.addProperty("saturdayHour", saturdayHour);
-		jsonObject.addProperty("saturdayMinute", saturdayMinute);
-		
+		jsonObject.add("saturdayHour", convertIntegerToArray(saturdayHour));
+		jsonObject.add("saturdayMinute", convertIntegerToArray(saturdayMinute));
+
 		jsonObject.addProperty("enableSunday", enableSunday);
-		jsonObject.addProperty("sundayHour", sundayHour);
-		jsonObject.addProperty("sundayMinute", sundayMinute);
-		
+		jsonObject.add("sundayHour", convertIntegerToArray(sundayHour));
+		jsonObject.add("sundayMinute", convertIntegerToArray(sundayMinute));
+
 		return jsonObject;
 	}
+
+	private static int[] convertArrayToInteger(JsonArray array) {
+
+		int[] integer = new int[array.size()];
+
+		for(int i = 0; i < array.size(); i ++) {
+			integer[i] = array.get(i).getAsInt();
+		}
+
+		return integer;
+	}
 	
+	private static JsonArray convertIntegerToArray(int[] integer) {
+
+		JsonArray array = new JsonArray();
+
+		for(int i = 0; i < integer.length; i ++) {
+			array.add(integer[i]);
+		}
+
+		return array;
+	}
+
 	public static File getFile() {
 		return file;
 	}
-	
+
 	public static JsonObject getObject() {
 		return object;
 	}
