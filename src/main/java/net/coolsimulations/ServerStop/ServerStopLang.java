@@ -17,6 +17,7 @@ public class ServerStopLang {
 		if(text == "serverstop.thirty_seconds") {
 			
 			return Reference.MOD_NAME + ": Dertig Sekondes Oorblywende Voor Bediener Afsluiting!";
+			
 		}
 		
 		if(text == "serverstop.ten_seconds") {
@@ -1101,7 +1102,7 @@ public class ServerStopLang {
 		
 		if(text == "serverstop.update.display3") {
 			
-			return "¡sǝɹnʇɐǝɟ ǝɹoɯ ɹoɟ ǝʇɐpdn ǝsɐǝꞁԀ ¡ᘔ˙ᘔ⥝˙⥝ uoᴉsɹǝΛ ʇɟɐɹɔǝuᴉW sʇɹoddns ɹǝᵷuoꞁ ou doʇS ɹǝʌɹǝS";
+			return "¡sǝɹnʇɐǝɟ ǝɹoɯ ɹoɟ ǝʇɐpdn ǝsɐǝꞁԀ ¡߈˙߈⥝˙⥝ uoᴉsɹǝΛ ʇɟɐɹɔǝuᴉW sʇɹoddns ɹǝᵷuoꞁ ou doʇS ɹǝʌɹǝS";
 		}
 		
 		if(text == "serverstop.commands.cancel.usage") {
