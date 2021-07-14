@@ -3,8 +3,8 @@ package net.coolsimulations.ServerStop;
 public class Reference {
 	public static final String MOD_ID = "serverstop";
 	public static final String MOD_NAME = "ServerStop";
-	public static final String VERSION = "0.1.0b";
-	public static final String ACCEPTED_VERSIONS = "[1.16, 1.16.1, 1.16.3, 1.16.4]";
+	public static final String VERSION = "0.1.1";
+	public static final String ACCEPTED_VERSIONS = "[1.16, 1.16.1, 1.16.3, 1.16.4, 1.16.5]";
 	public static final String CLIENT_PROXY_CLASS = "net.coolsimulations.ServerStop.proxy.ClientProxy";
 	public static final String SERVER_PROXY_CLASS = "net.coolsimulations.ServerStop.proxy.ServerProxy";
 	public static final String DEPENDENCIES = "required-after:forge@[35.0.15,);";

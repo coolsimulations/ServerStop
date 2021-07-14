@@ -1,12 +1,12 @@
 modLoader="javafml"
-loaderVersion="[35,]"
+loaderVersion="[36,]"
 issueTrackerURL="http://github.com/coolsimulations/serverstop/issues/"
 logoFile="logo.png"
 license="All rights reserved"
 
 [[mods]]
     modId="serverstop"
-    version="0.1.0b"
+    version="0.1.1"
     updateJSONURL="https://coolsimulations.net/mcmods/serverstop/versionchecker.json"
     displayURL="https://curseforge.com/minecraft/mc-mods/serverstop"
     displayName="ServerStop"
@@ -18,12 +18,12 @@ license="All rights reserved"
 [[dependencies.serverstop]]
     modId="forge"
     mandatory=true
-    versionRange="[35.0.15,)"
+    versionRange="[36.1.20,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.serverstop]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.4]"
+    versionRange="[1.16.5]"
     ordering="NONE"
     side="BOTH"
