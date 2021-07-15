@@ -3,9 +3,10 @@ package net.coolsimulations.ServerStop;
 import java.util.Calendar;
 
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.management.PlayerList;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.server.management.ServerConfigurationManager;
+import net.minecraft.server.management.UserListOpsEntry;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -29,7 +30,7 @@ public class ServerStopEventHandler {
 	@SubscribeEvent
 	public void onServerTickEvent(TickEvent.ServerTickEvent event) {
 
-		PlayerList player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList();
+		ServerConfigurationManager player = FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager();
 
 		if(ServerStopConfig.stopWhenPlayersOnline) {
 			serverstop(event, player);
@@ -43,7 +44,7 @@ public class ServerStopEventHandler {
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent event)
 	{
-		if (event.getModID().equals(Reference.MOD_ID))
+		if (event.modID.equals(Reference.MOD_ID))
 		{
 			ServerStopConfig.syncConfig(false);
 		}
@@ -53,14 +54,16 @@ public class ServerStopEventHandler {
 	public void onplayerLogin(PlayerLoggedInEvent event)
 	{
 		EntityPlayerMP player = (EntityPlayerMP) event.player;
+		
+		UserListOpsEntry op = player.mcServer.getConfigurationManager().getOppedPlayers().getEntry(player.getGameProfile());
 
-		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck == false && player.getServer().getPlayerList().getOppedPlayers().getPermissionLevel(player.getGameProfile()) == player.getServer().getOpPermissionLevel()) {
+		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck == false && op != null && op.getPermissionLevel() == player.mcServer.getOpPermissionLevel()) {
 			player.addChatMessage(ServerStopUpdateHandler.updateInfo);
 			player.addChatMessage(ServerStopUpdateHandler.updateVersionInfo);
 		}
 	}
 
-	public static void serverstop(TickEvent.ServerTickEvent event, PlayerList player) {
+	public static void serverstop(TickEvent.ServerTickEvent event, ServerConfigurationManager player) {
 
 		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && ServerStopConfig.enableMonday == true && cancel == false) {
 
@@ -98,7 +101,7 @@ public class ServerStopEventHandler {
 		}
 	}
 
-	public static void checkSendAndShutdown(PlayerList player, int[] hour, int[] minute) {
+	public static void checkSendAndShutdown(ServerConfigurationManager player, int[] hour, int[] minute) {
 
 		int setPairs = Math.min(hour.length, minute.length);
 
@@ -121,47 +124,47 @@ public class ServerStopEventHandler {
 
 			if(!hasPosted5Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 5 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 
-				hasPosted5Min = sendMessage(player, "serverstop.five_minutes", TextFormatting.AQUA, false);
+				hasPosted5Min = sendMessage(player, "serverstop.five_minutes", EnumChatFormatting.AQUA, false);
 			}
 
 			if(!hasPosted1Min && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 0) {
 
-				hasPosted1Min = sendMessage(player, "serverstop.one_minute", TextFormatting.DARK_AQUA, false);
+				hasPosted1Min = sendMessage(player, "serverstop.one_minute", EnumChatFormatting.DARK_AQUA, false);
 			}
 
 			if(!hasPosted30Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 30) {
 
-				hasPosted30Sec = sendMessage(player, "serverstop.thirty_seconds", TextFormatting.GOLD, false);
+				hasPosted30Sec = sendMessage(player, "serverstop.thirty_seconds", EnumChatFormatting.GOLD, false);
 			}
 
 			if(!hasPosted10Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 50) {
 
-				hasPosted10Sec = sendMessage(player, "serverstop.ten_seconds", TextFormatting.YELLOW, false);
+				hasPosted10Sec = sendMessage(player, "serverstop.ten_seconds", EnumChatFormatting.YELLOW, false);
 			}
 
 			if(!hasPosted5Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 55) {
 
-				hasPosted5Sec = sendMessage(player, "serverstop.five_seconds", TextFormatting.RED, true);
+				hasPosted5Sec = sendMessage(player, "serverstop.five_seconds", EnumChatFormatting.RED, true);
 			}
 
 			if(!hasPosted4Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 56) {
 
-				hasPosted4Sec = sendMessage(player, "serverstop.four_seconds", TextFormatting.DARK_RED, true);
+				hasPosted4Sec = sendMessage(player, "serverstop.four_seconds", EnumChatFormatting.DARK_RED, true);
 			}
 
 			if(!hasPosted3Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 57) {
 
-				hasPosted3Sec = sendMessage(player, "serverstop.three_seconds", TextFormatting.DARK_RED, true);
+				hasPosted3Sec = sendMessage(player, "serverstop.three_seconds", EnumChatFormatting.DARK_RED, true);
 			}
 
 			if(!hasPosted2Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 58) {
 
-				hasPosted2Sec = sendMessage(player, "serverstop.two_seconds", TextFormatting.DARK_RED, true);
+				hasPosted2Sec = sendMessage(player, "serverstop.two_seconds", EnumChatFormatting.DARK_RED, true);
 			}
 
 			if(!hasPosted1Sec && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute - 1 && Calendar.getInstance().get(Calendar.SECOND) == 59) {
 
-				hasPosted1Sec = sendMessage(player, "serverstop.one_second", TextFormatting.DARK_RED, true);
+				hasPosted1Sec = sendMessage(player, "serverstop.one_second", EnumChatFormatting.DARK_RED, true);
 			}
 
 			if(!hasStop && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == innerHour && Calendar.getInstance().get(Calendar.MINUTE) == innerMinute && Calendar.getInstance().get(Calendar.SECOND) == 0) {
@@ -172,11 +175,11 @@ public class ServerStopEventHandler {
 		}
 	}
 
-	public static boolean sendMessage(PlayerList player, String translation, TextFormatting colour, boolean bold) {
+	public static boolean sendMessage(ServerConfigurationManager player, String translation, EnumChatFormatting colour, boolean bold) {
 
-		TextComponentString text = new TextComponentString(getTranslations(translation));
-		text.getStyle().setColor(colour);
-		text.getStyle().setBold(bold);
+		ChatComponentText text = new ChatComponentText(getTranslations(translation));
+		text.getChatStyle().setColor(colour);
+		text.getChatStyle().setBold(bold);
 		player.sendChatMsg(text);
 		return true;
 	}

@@ -80,7 +80,7 @@ public class ServerStopConfig {
 	            }
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_LANG, "Default Server language", "en_us");
-	            prop.setComment("Server language codes are based off the Minecraft .lang files. See https://minecraft.gamepedia.com/Language for list.");
+	            prop.comment = "Server language codes are based off the Minecraft .lang files. See https://minecraft.gamepedia.com/Language for list.";
 	            serverLang = prop.getString();
 	            propOrder.add(prop.getName());
 	            
@@ -93,107 +93,107 @@ public class ServerStopConfig {
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_MONDAY, "Enable Monday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
+	            prop.comment = "If this is enabled, at a time specified below the server will auto-shutdown.";
 	            enableMonday = prop.getBoolean(true);
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_MONDAY, "Monday Server Shutdown Hour", new int[]{12});
-	            prop.setComment("On Monday this is the hour the server will auto-shutdown. It uses 24-hour time.");
+	            prop.comment = "On Monday this is the hour the server will auto-shutdown. It uses 24-hour time.";
 	            mondayHour = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_MONDAY, "Monday Server Shutdown Minute", new int[]{0});
-	            prop.setComment("On Monday this is the minute the server will auto-shutdown.");
+	            prop.comment = "On Monday this is the minute the server will auto-shutdown.";
 	            mondayMinute = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_TUESDAY, "Enable Tuesday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
+	            prop.comment = "If this is enabled, at a time specified below the server will auto-shutdown.";
 	            enableTuesday = prop.getBoolean(true);
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_TUESDAY, "Tuesday Server Shutdown Hour", new int[]{12});
-	            prop.setComment("On Tuesday this is the hour the server will auto-shutdown. It uses 24-hour time.");
+	            prop.comment = "On Tuesday this is the hour the server will auto-shutdown. It uses 24-hour time.";
 	            tuesdayHour = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_TUESDAY, "Tuesday Server Shutdown Minute", new int[]{0});
-	            prop.setComment("On Tuesday this is the minute the server will auto-shutdown.");
+	            prop.comment = "On Tuesday this is the minute the server will auto-shutdown.";
 	            tuesdayMinute = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_WEDNESDAY, "Enable Wednesday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
+	            prop.comment = "If this is enabled, at a time specified below the server will auto-shutdown.";
 	            enableWednesday = prop.getBoolean(true);
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_WEDNESDAY, "Wednesday Server Shutdown Hour", new int[]{12});
-	            prop.setComment("On Wednesday this is the hour the server will auto-shutdown. It uses 24-hour time.");
+	            prop.comment = "On Wednesday this is the hour the server will auto-shutdown. It uses 24-hour time.";
 	            wednesdayHour = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_WEDNESDAY, "Wednesday Server Shutdown Minute", new int[] {0});
-	            prop.setComment("On Wednesday this is the minute the server will auto-shutdown.");
+	            prop.comment = "On Wednesday this is the minute the server will auto-shutdown.";
 	            wednesdayMinute = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_THURSDAY, "Enable Thursday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
+	            prop.comment = "If this is enabled, at a time specified below the server will auto-shutdown.";
 	            enableThursday = prop.getBoolean(true);
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_THURSDAY, "Thursday Server Shutdown Hour", new int[]{12});
-	            prop.setComment("On Thursday this is the hour the server will auto-shutdown. It uses 24-hour time.");
+	            prop.comment = "On Thursday this is the hour the server will auto-shutdown. It uses 24-hour time.";
 	            thursdayHour = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_THURSDAY, "Thursday Server Shutdown Minute", new int[]{0});
-	            prop.setComment("On Thursday this is the minute the server will auto-shutdown.");
+	            prop.comment = "On Thursday this is the minute the server will auto-shutdown.";
 	            thursdayMinute = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_FRIDAY, "Enable Friday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
+	            prop.comment = "If this is enabled, at a time specified below the server will auto-shutdown.";
 	            enableFriday = prop.getBoolean(true);
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_FRIDAY, "Friday Server Shutdown Hour", new int[]{12});
-	            prop.setComment("On Friday this is the hour the server will auto-shutdown. It uses 24-hour time.");
+	            prop.comment = "On Friday this is the hour the server will auto-shutdown. It uses 24-hour time.";
 	            fridayHour = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_FRIDAY, "Friday Server Shutdown Minute", new int[]{0});
-	            prop.setComment("On Friday this is the minute the server will auto-shutdown.");
+	            prop.comment = "On Friday this is the minute the server will auto-shutdown.";
 	            fridayMinute = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_SATURDAY, "Enable Saturday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
+	            prop.comment = "If this is enabled, at a time specified below the server will auto-shutdown.";
 	            enableSaturday = prop.getBoolean(true);
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_SATURDAY, "Saturday Server Shutdown Hour", new int[]{12});
-	            prop.setComment("On Saturday this is the hour the server will auto-shutdown. It uses 24-hour time.");
+	            prop.comment = "On Saturday this is the hour the server will auto-shutdown. It uses 24-hour time.";
 	            saturdayHour = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_SATURDAY, "Saturday Server Shutdown Minute", new int[]{0});
-	            prop.setComment("On Saturday this is the minute the server will auto-shutdown.");
+	            prop.comment = "On Saturday this is the minute the server will auto-shutdown.";
 	            saturdayMinute = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_SUNDAY, "Enable Sunday Server Stop", true);
-	            prop.setComment("If this is enabled, at a time specified below the server will auto-shutdown.");
+	            prop.comment = "If this is enabled, at a time specified below the server will auto-shutdown.";
 	            enableSunday = prop.getBoolean(true);
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_SUNDAY, "Sunday Server Shutdown Hour", new int[]{12});
-	            prop.setComment("On Sunday this is the hour the server will auto-shutdown. It uses 24-hour time.");
+	            prop.comment = "On Sunday this is the hour the server will auto-shutdown. It uses 24-hour time.";
 	            sundayHour = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
 	            prop = config.get(Reference.CONFIG_CATEGORY_SUNDAY, "Sunday Server Shutdown Minute", new int[]{0});
-	            prop.setComment("On Sunday this is the minute the server will auto-shutdown.");
+	            prop.comment = "On Sunday this is the minute the server will auto-shutdown.";
 	            sundayMinute = prop.getIntList();
 	            propOrder.add(prop.getName());
 	            
