@@ -2,16 +2,16 @@ package net.coolsimulations.ServerStop;
 
 import java.util.Calendar;
 
+import cpw.mods.fml.client.event.ConfigChangedEvent;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.server.management.UserListOpsEntry;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class ServerStopEventHandler {
 
@@ -35,7 +35,7 @@ public class ServerStopEventHandler {
 		if(ServerStopConfig.stopWhenPlayersOnline) {
 			serverstop(event, player);
 		} else {
-			if(player.getPlayerList().size() == 0) {
+			if(player.playerEntityList.size() == 0) {
 				serverstop(event, player);
 			}
 		}
@@ -55,9 +55,9 @@ public class ServerStopEventHandler {
 	{
 		EntityPlayerMP player = (EntityPlayerMP) event.player;
 		
-		UserListOpsEntry op = player.mcServer.getConfigurationManager().getOppedPlayers().getEntry(player.getGameProfile());
+		UserListOpsEntry op = (UserListOpsEntry)player.mcServer.getConfigurationManager().func_152603_m().func_152683_b(player.getGameProfile());
 
-		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck == false && op != null && op.getPermissionLevel() == player.mcServer.getOpPermissionLevel()) {
+		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck == false && op != null && op.func_152644_a() == player.mcServer.getOpPermissionLevel()) {
 			player.addChatMessage(ServerStopUpdateHandler.updateInfo);
 			player.addChatMessage(ServerStopUpdateHandler.updateVersionInfo);
 		}

@@ -4,10 +4,10 @@ public class Reference {
 	public static final String MOD_ID = "serverstop";
 	public static final String MOD_NAME = "ServerStop";
 	public static final String VERSION = "0.1.1";
-	public static final String ACCEPTED_VERSIONS = "[1.8, 1.8.9]";
+	public static final String ACCEPTED_VERSIONS = "[1.7, 1.7.10]";
 	public static final String CLIENT_PROXY_CLASS = "net.coolsimulations.ServerStop.proxy.ClientProxy";
 	public static final String SERVER_PROXY_CLASS = "net.coolsimulations.ServerStop.proxy.ServerProxy";
-	public static final String DEPENDENCIES = "required-after:Forge@[11.15.1.2318,);";
+	public static final String DEPENDENCIES = "required-after:Forge@[10.13.4.1614,);";
 	public static final String SERVERSTOP_CONFIG_FILE = "ServerStop.conf";
 	public static final String CONFIG_CATEGORY_LANG = "lang";
 	public static final String CONFIG_CATEGORY_UTIL = "util";

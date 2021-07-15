@@ -1,13 +1,13 @@
  package net.coolsimulations.ServerStop.proxy;
  
- import net.coolsimulations.ServerStop.ServerStopEventHandler;
-import net.minecraftforge.common.MinecraftForge;
+ import cpw.mods.fml.common.FMLCommonHandler;
+import net.coolsimulations.ServerStop.ServerStopEventHandler;
 
 public interface CommonProxy {
 	
 	public static void init() {
 		
-		MinecraftForge.EVENT_BUS.register(new ServerStopEventHandler());
+		FMLCommonHandler.instance().bus().register(new ServerStopEventHandler());
 	}
 	 
 }
