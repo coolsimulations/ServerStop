@@ -15,7 +15,7 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ServerStop {
 	
-	 public static CommonProxy proxy = (CommonProxy) DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+	 public static CommonProxy proxy = (CommonProxy) DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 	
 	private static ServerStop instance;
 	public static ServerStop getInstance()
