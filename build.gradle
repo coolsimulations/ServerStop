@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url = "https://maven.minecraftforge.net" }
         maven { url = "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
     dependencies {
@@ -79,8 +79,8 @@ task packDev(type: Jar) {
     println(defaultTasks)
 }
 
-reobf {
-    packDev { }
+artifacts {
+    archives packDev
 }
 
 }
