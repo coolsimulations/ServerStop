@@ -3,10 +3,8 @@ package net.coolsimulations.ServerStop;
 import java.net.URL;
 import java.util.Scanner;
 
-import net.minecraft.event.ClickEvent;
-import net.minecraft.event.HoverEvent;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
+import cpw.mods.fml.common.FMLCommonHandler;
+import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -15,13 +13,13 @@ public class ServerStopUpdateHandler {
 	private static String latestVersion;
 	private static String latestVersionInfo;
 	public static boolean isOld = false;
-	public static ChatComponentTranslation updateInfo = null;
-	public static ChatComponentText updateVersionInfo = null;
+	public static ChatMessageComponent updateInfo = null;
+	public static ChatMessageComponent updateVersionInfo = null;
 
 	public static void init() {
 
 		try {
-			URL url = new URL("https://coolsimulations.net/mcmods/serverstop/versionchecker17.txt");
+			URL url = new URL("http://coolsimulations.net/mcmods/serverstop/versionchecker16.txt");
 			Scanner s = new Scanner(url.openStream());
 			latestVersion = s.next();
 			s.close();
@@ -30,7 +28,7 @@ public class ServerStopUpdateHandler {
 		}
 
 		try {
-			URL url = new URL("https://coolsimulations.net/mcmods/serverstop/updateinfo17.txt");
+			URL url = new URL("http://coolsimulations.net/mcmods/serverstop/updateinfo16.txt");
 			Scanner s = new Scanner(url.openStream());
 			latestVersionInfo = s.nextLine();
 			s.close();
@@ -44,17 +42,14 @@ public class ServerStopUpdateHandler {
 
 				isOld = true;
 
-				ChatComponentText ss = new ChatComponentText(Reference.MOD_NAME);
-				ss.getChatStyle().setColor(EnumChatFormatting.BLUE);
+				ChatMessageComponent ss = ChatMessageComponent.createFromText("§9" + Reference.MOD_NAME + "§e");
+				ss.setColor(EnumChatFormatting.BLUE);
 
-				ChatComponentText MCVersion = new ChatComponentText(MinecraftForge.MC_VERSION);
-				MCVersion.getChatStyle().setColor(EnumChatFormatting.BLUE);
+				ChatMessageComponent MCVersion = ChatMessageComponent.createFromText("§9" + FMLCommonHandler.instance().getMinecraftServerInstance().getMinecraftVersion() + "§e");
+				MCVersion.setColor(EnumChatFormatting.BLUE);
 
-				updateInfo = new ChatComponentTranslation(ServerStopEventHandler.getTranslations("serverstop.update.display3"), new Object[] {ss, MCVersion});
-				updateInfo.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-
-				updateInfo.getChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-				updateInfo.getChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
+				updateInfo = ChatMessageComponent.createFromTranslationWithSubstitutions(ServerStopEventHandler.getTranslations("serverstop.update.display3"), new Object[] {ss, MCVersion});
+				updateInfo.setColor(EnumChatFormatting.YELLOW);
 
 			}
 
@@ -62,26 +57,20 @@ public class ServerStopUpdateHandler {
 
 				isOld = true;
 
-				ChatComponentText ss = new ChatComponentText(Reference.MOD_NAME);
-				ss.getChatStyle().setColor(EnumChatFormatting.BLUE);
+				ChatMessageComponent ss = ChatMessageComponent.createFromText("§9" + Reference.MOD_NAME + "§e");
+				ss.setColor(EnumChatFormatting.BLUE);
 
-				ChatComponentText version = new ChatComponentText(latestVersion);
-				version.getChatStyle().setColor(EnumChatFormatting.BLUE);
+				ChatMessageComponent version = ChatMessageComponent.createFromText("§9" + latestVersion + "§e");
+				version.setColor(EnumChatFormatting.BLUE);
 
-				updateInfo = new ChatComponentTranslation(ServerStopEventHandler.getTranslations("serverstop.update.display1"), new Object[] {ss, version});
-				updateInfo.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-
-				updateInfo.getChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-				updateInfo.getChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
+				updateInfo = ChatMessageComponent.createFromTranslationWithSubstitutions(ServerStopEventHandler.getTranslations("serverstop.update.display1"), new Object[] {ss, version});
+				updateInfo.setColor(EnumChatFormatting.YELLOW);
 
 				if(latestVersionInfo != null) {
 
-					updateVersionInfo = new ChatComponentText(latestVersionInfo);
-					updateVersionInfo.getChatStyle().setColor(EnumChatFormatting.DARK_AQUA);
-					updateVersionInfo.getChatStyle().setBold(true);
-
-					updateVersionInfo.getChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText(ServerStopEventHandler.getTranslations("serverstop.update.display2"))));
-					updateVersionInfo.getChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));
+					updateVersionInfo = ChatMessageComponent.createFromText(latestVersionInfo);
+					updateVersionInfo.setColor(EnumChatFormatting.DARK_AQUA);
+					updateVersionInfo.setBold(true);
 
 				}
 

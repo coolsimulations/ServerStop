@@ -7,7 +7,7 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.EnumChatFormatting;
 
 public class CommandCancel extends CommandBase{
@@ -32,11 +32,11 @@ public class CommandCancel extends CommandBase{
             throw new WrongUsageException(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.usage"), new Object[0]);
             
         } else {
-        		ChatComponentText cancelFalse= new ChatComponentText(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.display1"));
-        		ChatComponentText cancelTrue = new ChatComponentText(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.display2"));
+        		ChatMessageComponent cancelFalse = ChatMessageComponent.createFromTranslationKey(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.display1"));
+        		ChatMessageComponent cancelTrue = ChatMessageComponent.createFromTranslationKey(ServerStopEventHandler.getTranslations("serverstop.commands.cancel.display2"));
         		
-        		cancelFalse.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-        		cancelTrue.getChatStyle().setColor(EnumChatFormatting.YELLOW);
+        		cancelFalse.setColor(EnumChatFormatting.YELLOW);
+        		cancelTrue.setColor(EnumChatFormatting.YELLOW);
         		
         		if(ServerStopEventHandler.cancel == false) {
         			
@@ -62,5 +62,10 @@ public class CommandCancel extends CommandBase{
     {
         return getListOfStringsMatchingLastWord(args);
     }
+
+	@Override
+	public int compareTo(Object o) {
+		return this.compareTo(o);
+	}
 
 }

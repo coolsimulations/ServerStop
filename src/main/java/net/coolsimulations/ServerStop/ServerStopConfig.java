@@ -4,13 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.Level;
+import java.util.logging.Level;
 
-import cpw.mods.fml.client.config.IConfigElement;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import net.minecraftforge.common.config.ConfigElement;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
+import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.Property;
 
 
 public class ServerStopConfig {
@@ -206,23 +204,9 @@ public class ServerStopConfig {
 	        }
 	        catch (final Exception e)
 	        {
-	        	FMLRelaunchLog.log(Reference.MOD_NAME, Level.ERROR, ("Problem loading SurvivalPlus config (\"SurvivalPlus.conf\")"));
+	        	FMLRelaunchLog.log(Reference.MOD_NAME, Level.SEVERE, ("Problem loading SurvivalPlus config (\"SurvivalPlus.conf\")"));
 	            e.printStackTrace();
 	        }
-	    }
-	 
-	 public static List<IConfigElement> getConfigElements()
-	    {
-	        List<IConfigElement> list = new ArrayList<IConfigElement>();
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_LANG)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_MONDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_TUESDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_WEDNESDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_THURSDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_FRIDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_SATURDAY)).getChildElements());
-	        list.addAll(new ConfigElement(config.getCategory(Reference.CONFIG_CATEGORY_SUNDAY)).getChildElements());
-	        return list;
 	    }
 
 }

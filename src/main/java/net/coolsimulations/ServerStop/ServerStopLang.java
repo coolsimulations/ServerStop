@@ -1101,7 +1101,7 @@ public class ServerStopLang {
 		
 		if(text == "serverstop.update.display3") {
 			
-			return "¡sǝɹnʇɐǝɟ ǝɹoɯ ɹoɟ ǝʇɐpdn ǝsɐǝꞁԀ ¡0⥝˙ㄥ˙⥝ uoᴉsɹǝΛ ʇɟɐɹɔǝuᴉW sʇɹoddns ɹǝᵷuoꞁ ou doʇS ɹǝʌɹǝS";
+			return "¡sǝɹnʇɐǝɟ ǝɹoɯ ɹoɟ ǝʇɐpdn ǝsɐǝꞁԀ ¡9˙⥝ uoᴉsɹǝΛ ʇɟɐɹɔǝuᴉW sʇɹoddns ɹǝᵷuoꞁ ou doʇS ɹǝʌɹǝS";
 		}
 		
 		if(text == "serverstop.commands.cancel.usage") {

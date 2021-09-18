@@ -1,19 +1,19 @@
 package net.coolsimulations.ServerStop;
 
 import java.util.Calendar;
+import java.util.EnumSet;
 
-import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.ITickHandler;
+import cpw.mods.fml.common.TickType;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.management.ServerConfigurationManager;
-import net.minecraft.server.management.UserListOpsEntry;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 
-public class ServerStopEventHandler {
+public class ServerStopEventHandler implements ITickHandler {
 
 	private static boolean hasPosted5Min = false;
 	private static boolean hasPosted1Min = false;
@@ -27,43 +27,52 @@ public class ServerStopEventHandler {
 	private static boolean hasStop = false;
 	public static boolean cancel = false;
 
-	@SubscribeEvent
-	public void onServerTickEvent(TickEvent.ServerTickEvent event) {
+	@Override
+	public void tickStart(EnumSet<TickType> type, Object... tickData) {
 
-		ServerConfigurationManager player = FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager();
+		if(type.contains(TickType.SERVER)) {
+			ServerConfigurationManager player = FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager();
 
-		if(ServerStopConfig.stopWhenPlayersOnline) {
-			serverstop(event, player);
-		} else {
-			if(player.playerEntityList.size() == 0) {
-				serverstop(event, player);
+			if(ServerStopConfig.stopWhenPlayersOnline) {
+				serverstop(player);
+			} else {
+				if(player.playerEntityList.size() == 0) {
+					serverstop(player);
+				}
+			}
+		}
+	}
+	
+	@Override
+	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
+	}
+	
+	@Override
+	public EnumSet<TickType> ticks() {
+		return EnumSet.of(TickType.SERVER);
+	}
+	
+	@Override
+	public String getLabel() {
+		return null;
+	}
+
+	@ForgeSubscribe
+	public void onplayerLogin(EntityJoinWorldEvent event)
+	{
+		if(event.entity instanceof EntityPlayerMP) {
+			EntityPlayerMP player = (EntityPlayerMP) event.entity;
+
+			boolean op = player.mcServer.getConfigurationManager().isPlayerOpped(player.username);
+
+			if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck == false && op) {
+				player.sendChatToPlayer(ServerStopUpdateHandler.updateInfo);
+				player.sendChatToPlayer(ServerStopUpdateHandler.updateVersionInfo);
 			}
 		}
 	}
 
-	@SubscribeEvent
-	public void onConfigChanged(ConfigChangedEvent event)
-	{
-		if (event.modID.equals(Reference.MOD_ID))
-		{
-			ServerStopConfig.syncConfig(false);
-		}
-	}
-
-	@SubscribeEvent
-	public void onplayerLogin(PlayerLoggedInEvent event)
-	{
-		EntityPlayerMP player = (EntityPlayerMP) event.player;
-		
-		UserListOpsEntry op = (UserListOpsEntry)player.mcServer.getConfigurationManager().func_152603_m().func_152683_b(player.getGameProfile());
-
-		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck == false && op != null && op.func_152644_a() == player.mcServer.getOpPermissionLevel()) {
-			player.addChatMessage(ServerStopUpdateHandler.updateInfo);
-			player.addChatMessage(ServerStopUpdateHandler.updateVersionInfo);
-		}
-	}
-
-	public static void serverstop(TickEvent.ServerTickEvent event, ServerConfigurationManager player) {
+	public static void serverstop(ServerConfigurationManager player) {
 
 		if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && ServerStopConfig.enableMonday == true && cancel == false) {
 
@@ -106,16 +115,16 @@ public class ServerStopEventHandler {
 		int setPairs = Math.min(hour.length, minute.length);
 
 		for(int i = 0; i < setPairs; i++) {
-			
+
 			int innerHour = hour[i];
 			int innerMinute = minute[i];
-			
+
 			if(innerHour < 0) {
 				innerHour = 0;
 			} else if (innerHour > 23) {
 				innerHour = 23;
 			}
-			
+
 			if(innerMinute < 0) {
 				innerMinute = 0;
 			} else if (innerMinute > 59) {
@@ -177,9 +186,9 @@ public class ServerStopEventHandler {
 
 	public static boolean sendMessage(ServerConfigurationManager player, String translation, EnumChatFormatting colour, boolean bold) {
 
-		ChatComponentText text = new ChatComponentText(getTranslations(translation));
-		text.getChatStyle().setColor(colour);
-		text.getChatStyle().setBold(bold);
+		ChatMessageComponent text = ChatMessageComponent.createFromText(getTranslations(translation));
+		text.setColor(colour);
+		text.setBold(bold);
 		player.sendChatMsg(text);
 		return true;
 	}
