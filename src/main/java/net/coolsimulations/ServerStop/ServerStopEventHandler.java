@@ -4,11 +4,11 @@ import java.util.Calendar;
 import java.util.List;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
 import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
 import net.minecraftforge.event.TickEvent;
@@ -58,8 +58,8 @@ public class ServerStopEventHandler {
 		ServerPlayer player = (ServerPlayer) event.getPlayer();
 
 		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck.get() == false && player.hasPermissions(player.getServer().getOperatorUserPermissionLevel())) {
-			player.sendMessage(ServerStopUpdateHandler.updateInfo.withStyle((style) -> {return style.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2")))).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));}), ChatType.SYSTEM, Util.NIL_UUID);
-			player.sendMessage(ServerStopUpdateHandler.updateVersionInfo.withStyle((style) -> {return style.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent(ServerStopEventHandler.getTranslations("serverstop.update.display2")))).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));}), ChatType.SYSTEM, Util.NIL_UUID);
+			player.sendSystemMessage(ServerStopUpdateHandler.updateInfo.withStyle((style) -> {return style.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.literal(ServerStopEventHandler.getTranslations("serverstop.update.display2")))).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));}));
+			player.sendSystemMessage(ServerStopUpdateHandler.updateVersionInfo.withStyle((style) -> {return style.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.literal(ServerStopEventHandler.getTranslations("serverstop.update.display2")))).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));}));
 		}
 	}
 
@@ -177,11 +177,11 @@ public class ServerStopEventHandler {
 
 	public static boolean sendMessage(PlayerList player, String translation, ChatFormatting colour, boolean bold) {
 
-		TextComponent text = new TextComponent(getTranslations(translation));
+		MutableComponent text = Component.literal(getTranslations(translation));
 		text.withStyle(colour);
 		if(bold)
 			text.withStyle(ChatFormatting.BOLD);
-		player.broadcastMessage(text, ChatType.SYSTEM, Util.NIL_UUID);
+		player.broadcastSystemMessage(text, ChatType.SYSTEM);
 		return true;
 	}
 
