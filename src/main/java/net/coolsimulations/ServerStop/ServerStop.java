@@ -4,7 +4,7 @@ import java.io.File;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class ServerStop implements ModInitializer {
@@ -25,7 +25,7 @@ public class ServerStop implements ModInitializer {
 			ServerStopEventHandler.onServerTickEvent();
 		}
 		
-		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, environment) -> {
 			CommandCancel.register(dispatcher);
 		});
 

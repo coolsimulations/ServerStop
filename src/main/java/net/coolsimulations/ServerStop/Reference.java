@@ -4,7 +4,7 @@ public class Reference {
 	public static final String MOD_ID = "serverstop";
 	public static final String MOD_NAME = "ServerStop";
 	public static final String VERSION = "0.1.1";
-	public static final String ACCEPTED_VERSIONS = "[1.18, 1.18.1]";
+	public static final String ACCEPTED_VERSIONS = "[1.19]";
 	public static final String CLIENT_PROXY_CLASS = "net.coolsimulations.ServerStop.proxy.ClientProxy";
 	public static final String SERVER_PROXY_CLASS = "net.coolsimulations.ServerStop.proxy.ServerProxy";
 	public static final String DEPENDENCIES = "required-after:forge@[39.0.7,);";
