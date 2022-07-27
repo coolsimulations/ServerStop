@@ -6,7 +6,6 @@ import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
@@ -29,11 +28,11 @@ public class CommandCancel {
 		if(ServerStopEventHandler.cancel == false) {
 
 			ServerStopEventHandler.cancel = true;
-			sender.getServer().getPlayerList().broadcastSystemMessage(cancelTrue, ChatType.SYSTEM);
+			sender.getServer().getPlayerList().broadcastSystemMessage(cancelTrue, false);
 		} else {
 
 			ServerStopEventHandler.cancel = false;
-			sender.getServer().getPlayerList().broadcastSystemMessage(cancelFalse, ChatType.SYSTEM);
+			sender.getServer().getPlayerList().broadcastSystemMessage(cancelFalse, false);
 
 		}
 

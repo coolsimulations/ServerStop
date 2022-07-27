@@ -4,7 +4,6 @@ import java.util.Calendar;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
@@ -169,7 +168,7 @@ public class ServerStopEventHandler {
 		text.withStyle(colour);
 		if(bold)
 			text.withStyle(ChatFormatting.BOLD);
-		player.broadcastSystemMessage(text, ChatType.SYSTEM);
+		player.broadcastSystemMessage(text, false);
 		return true;
 	}
 
