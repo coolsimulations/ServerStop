@@ -4,7 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
@@ -13,7 +12,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
-import net.minecraftforge.event.world.WorldEvent;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.server.ServerLifecycleHooks;
 
@@ -46,8 +45,8 @@ public class ServerStopEventHandler {
 	}
 
 	@SubscribeEvent
-	public void checkForUpdates(WorldEvent.Load event) {
-		if(!event.getWorld().isClientSide()) {
+	public void checkForUpdates(LevelEvent.Load event) {
+		if(!event.getLevel().isClientSide()) {
 			ServerStopUpdateHandler.init();
 		}
 	}
@@ -55,7 +54,7 @@ public class ServerStopEventHandler {
 	@SubscribeEvent
 	public void onplayerLogin(PlayerLoggedInEvent event)
 	{
-		ServerPlayer player = (ServerPlayer) event.getPlayer();
+		ServerPlayer player = (ServerPlayer) event.getEntity();
 
 		if(ServerStopUpdateHandler.isOld == true && ServerStopConfig.disableUpdateCheck.get() == false && player.hasPermissions(player.getServer().getOperatorUserPermissionLevel())) {
 			player.sendSystemMessage(ServerStopUpdateHandler.updateInfo.withStyle((style) -> {return style.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.literal(ServerStopEventHandler.getTranslations("serverstop.update.display2")))).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/serverstop"));}));
@@ -181,7 +180,7 @@ public class ServerStopEventHandler {
 		text.withStyle(colour);
 		if(bold)
 			text.withStyle(ChatFormatting.BOLD);
-		player.broadcastSystemMessage(text, ChatType.SYSTEM);
+		player.broadcastSystemMessage(text, false);
 		return true;
 	}
 
